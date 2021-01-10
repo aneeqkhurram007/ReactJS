@@ -1,27 +1,28 @@
+// import DOM from 'dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Li from "./Li";
 import reportWebVitals from './reportWebVitals';
 
+// let name = window.prompt("Enter your name");
+const currDate = new Date().toLocaleDateString();
+
+let styling = {
+  color: "antiquewhite",
+  textAlign: "centre",
+  backgroundColor: "brown"
+};
 
 
 ReactDOM.render(
   <>
+    <Li />
 
-    <p>
-      Do subscribe me
-    </p>
-    <ol>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ol>
-  </>
 
-  ,
+
+  </>,
   document.getElementById("root")
 );
 
