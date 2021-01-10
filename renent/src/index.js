@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Div from './Div';
+import * as calc from './Calc';
 import reportWebVitals from './reportWebVitals';
-
-
+let div = document.querySelector("div");
+div.setAttribute("school", "ANeeq");
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Div />
+    <ol>
+      <li>Addition is {calc.add(2, 6)}</li>
+      <li>Subtraction is {calc.sub(8, 9)}</li>
+      <li>Multiplication is {calc.mul(6, 6)}</li>
+      <li>Division is {calc.div(10, 3)} </li>
+    </ol>
   </React.StrictMode>
   , document.getElementById("root")
 );
