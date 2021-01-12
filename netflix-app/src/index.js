@@ -1,12 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
+import Card from './Card';
+import Sdata from './Sdata';
 import reportWebVitals from './reportWebVitals';
+
+
+
+const SDATA = () => {
+  return (Sdata.map((val, index) => {
+    return (
+      <Card
+        key={val.id}
+        imgSrc={val.imgSrc}
+        title={val.title}
+        name={(index + 1) + ". " + val.name
+        }
+        link={val.link}
+
+      />
+    )
+  }));
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+
+    <SDATA />
+
+
+
   </React.StrictMode>,
   document.getElementById('root')
 );
