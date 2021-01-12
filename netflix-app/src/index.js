@@ -1,10 +1,12 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import React from 'react';
+
 import './index.css';
 // import App from './App';
 import Card from './Card';
 import Sdata from './Sdata';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 
 
 
@@ -24,11 +26,13 @@ const SDATA = () => {
   }));
 };
 
+
 ReactDOM.render(
+
   <React.StrictMode>
 
     <SDATA />
-
+    <App />
 
 
   </React.StrictMode>,
