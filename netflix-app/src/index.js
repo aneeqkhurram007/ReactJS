@@ -39,9 +39,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-const arr1 = [1, 2, 3, 4, 5, 6];
-const arr2 = [...arr1, 7, 8, 9, 10];
-console.log(arr2);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
