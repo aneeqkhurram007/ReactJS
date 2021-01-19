@@ -10,41 +10,45 @@ const Input = () => {
         const name = event.target.name;
 
         setFName((prev) => {
+            return {
+                ...prev,
+                [name]: value,
+            };
 
-            if (name === "fName") {
-                return {
-                    fname: value,
-                    lname: prev.lname,
-                    email: prev.email,
-                    phone: prev.phone
-                };
-            }
-            else if (name === "lName") {
-                return {
-                    fname: prev.fname,
-                    lname: value,
-                    email: prev.email,
-                    phone: prev.phone
+            // if (name === "fName") {
+            //     return {
+            //         fname: value,
+            //         lname: prev.lname,
+            //         email: prev.email,
+            //         phone: prev.phone
+            //     };
+            // }
+            // else if (name === "lName") {
+            //     return {
+            //         fname: prev.fname,
+            //         lname: value,
+            //         email: prev.email,
+            //         phone: prev.phone
 
-                }
-            }
-            else if (name === "email") {
-                return {
-                    fname: prev.fname,
-                    lname: prev.lname,
-                    email: value,
-                    phone: prev.phone
+            //     }
+            // }
+            // else if (name === "email") {
+            //     return {
+            //         fname: prev.fname,
+            //         lname: prev.lname,
+            //         email: value,
+            //         phone: prev.phone
 
-                }
-            }
-            else {
-                return {
-                    fname: prev.fname,
-                    lname: prev.lname,
-                    email: prev.email,
-                    phone: value
-                };
-            }
+            //     }
+            // }
+            // else {
+            //     return {
+            //         fname: prev.fname,
+            //         lname: prev.lname,
+            //         email: prev.email,
+            //         phone: value
+            //     };
+            // }
         })
 
 
@@ -55,7 +59,8 @@ const Input = () => {
         fname: "",
         lname: "",
         email: "",
-        phone: ""
+        phone: "",
+        qua: "",
     });
     const onSubmit = (event) => {
         event.preventDefault();
@@ -71,13 +76,13 @@ const Input = () => {
                 <form onSubmit={onSubmit}>
                     <input type="text" placeholder="Enter your first name"
                         id="inputField" value={fullName.fname} onChange={inputEvent}
-                        name="fName"
+                        name="fname"
                     />
                     <br />
 
                     <input type="text" placeholder="Enter your last name"
                         id="inputField" value={fullName.lname} onChange={inputEvent}
-                        name="lName"
+                        name="lname"
                     />
                     <br />
 
@@ -94,6 +99,11 @@ const Input = () => {
                     />
                     <br />
 
+                    <input type="text" placeholder="Enter your qualifiaction"
+                        id="inputField" value={fullName.qua} onChange={inputEvent}
+                        name="qua"
+
+                    />
                     <button type="submit">Click Me</button>
                 </form>
             </div>
