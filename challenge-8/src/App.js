@@ -14,7 +14,7 @@ function App() {
         setCount(count - 1);
       }
       else {
-        alert("Limit reached to  0");
+        alert("Limit reached to 🎱");
         setCount(0);
       }
 
