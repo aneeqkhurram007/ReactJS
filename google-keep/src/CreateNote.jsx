@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import AddCircleOutlineRoundedIcon from '@material-ui/icons/AddCircleOutlineRounded';
 const CreateNote = (props) => {
     const [note, setNote] = useState({
@@ -21,22 +22,31 @@ const CreateNote = (props) => {
     const addEvent = () => {
         props.passNote(note);
         setNote({
-            title:"",
-            content:""
+            title: "",
+            content: ""
         })
     }
     return (
         <React.StrictMode>
-            <div>
+            <div style={{ margin: "10%" }}>
                 <form>
-                    <input type="text" placeholder="Title" name="title" autoComplete="off" value={note.title} onChange={InputEvent} />
-                    <br />
-                    <textarea rows="" column="" name="content" placeholder="Write a Note" value={note.content} onChange={InputEvent} >
+                    <input type="text" className="form-control" style={{ borderBottom: "0" }} placeholder="Title" name="title" autoComplete="off" value={note.title} onChange={InputEvent} />
+
+                    <textarea rows="" className="form-control" style={{
+                        height: "100px",
+                        borderTop: "0"
+                    }} column="" name="content" placeholder="Write a Note" value={note.content} onChange={InputEvent} >
 
                     </textarea>
-                    <br />
-                    <Button onClick={addEvent}>
-                        <AddCircleOutlineRoundedIcon />
+
+                    <Button onClick={addEvent} className="btn btn-dark" style={{
+                        position: "relative",
+                        left: "45%",
+
+                    }} >
+                        <AddCircleOutlineRoundedIcon style={{
+                            fontSize: "4em"
+                        }} />
                     </Button>
                 </form>
             </div>
