@@ -45,7 +45,8 @@ const CreateNote = (props) => {
 
                     }} >
                         <AddCircleOutlineRoundedIcon style={{
-                            fontSize: "4em"
+                            fontSize: "4em",
+                            color: "white"
                         }} />
                     </Button>
                 </form>
