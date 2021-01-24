@@ -26,29 +26,47 @@ const CreateNote = (props) => {
             content: ""
         })
     }
+    const expandIt = () => {
+        setExpand(true);
+    }
+
+    const expandItD = () => {
+        setExpand(false);
+    }
+
+    const [expand, setExpand] = useState(false);
+
     return (
         <React.StrictMode>
             <div style={{ margin: "10%" }}>
                 <form>
-                    <input type="text" className="form-control" style={{ borderBottom: "0" }} placeholder="Title" name="title" autoComplete="off" value={note.title} onChange={InputEvent} />
-
+                    {expand ?
+                        <input type="text" className="form-control" style={{ borderBottom: "0" }}
+                            placeholder="Title" name="title"
+                            autoComplete="off" value={note.title} onChange={InputEvent} />
+                        : null}
                     <textarea rows="" className="form-control" style={{
                         height: "100px",
                         borderTop: "0"
-                    }} column="" name="content" placeholder="Write a Note" value={note.content} onChange={InputEvent} >
+                    }} column="" name="content"
+                        placeholder="Write a Note" value={note.content}
+                        onChange={InputEvent}
+                        onClick={expandIt}
+                        onDoubleClick={expandItD}
+                    >
 
                     </textarea>
+                    {expand ?
+                        <Button onClick={addEvent} className="btn btn-dark" style={{
+                            position: "relative",
+                            left: "45%",
 
-                    <Button onClick={addEvent} className="btn btn-dark" style={{
-                        position: "relative",
-                        left: "45%",
-
-                    }} >
-                        <AddCircleOutlineRoundedIcon style={{
-                            fontSize: "4em",
-                            color: "white"
-                        }} />
-                    </Button>
+                        }} >
+                            <AddCircleOutlineRoundedIcon style={{
+                                fontSize: "4em",
+                                color: "white"
+                            }} />
+                        </Button> : null}
                 </form>
             </div>
 
