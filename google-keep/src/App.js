@@ -6,6 +6,8 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
+
+  const [addItem, setAddItem] = useState([]);
   const addNote = (note) => {
     setAddItem((prevItems) => {
       return [...prevItems, note];
@@ -13,13 +15,13 @@ function App() {
     console.log(note);
 
   }
-  const [addItem, setAddItem] = useState([]);
-
-const onDelete=(id)=>{
-setAddItem((prevItem)=>{
-  prevItem.filter()
-})
-}
+  const onDelete = (id) => {
+    setAddItem((prevItem) =>
+      prevItem.filter((currData, index) => {
+        return index !== id;
+      })
+    )
+  }
   return (
     <div className="App">
       <header className="App-header" >
@@ -27,9 +29,9 @@ setAddItem((prevItem)=>{
         <Header />
         <CreateNote passNote={addNote} />
         {
-          addItem.map((val,index)=>{
-          return <Note key={index} id={index} title={val.title} content={val.content} deleteItem={onDelete} />;
-        })
+          addItem.map((val, index) => {
+            return (<Note key={index} id={index} title={val.title} content={val.content} deleteItem={onDelete} />);
+          })
         }
         <Footer />
 
