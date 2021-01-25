@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import About from './About';
 import Contact from './Contact';
 import Menu from "./Menu";
+import User from "./User";
 
 function App() {
 
@@ -14,9 +15,9 @@ function App() {
 
   return (
     <div className="App">
-    
+
       <header className="App-header">
-      <Menu />
+        <Menu />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -32,13 +33,15 @@ function App() {
         <CompA />
         <Switch>
 
-          <Route path='/' component={()=>
+          <Route path='/' component={() =>
             <About name="About" />
           } exact />
-          <Route path='/contact' render={()=>
+          <Route render={()=><User name="User" />} path="/user/:fname/:lname" />
+          <Route path='/contact' render={() =>
             <Contact name="Contact" />
           } />
-          <Route component={Error} />
+                    <Route component={Error} />
+
         </Switch>
 
         {/* <About />
