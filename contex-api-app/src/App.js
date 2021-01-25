@@ -4,11 +4,19 @@ import CompA from './CompA';
 import { Route, Switch } from "react-router-dom";
 import About from './About';
 import Contact from './Contact';
+import Menu from "./Menu";
 
 function App() {
+
+  const Error = () => {
+    return <h1>Error 404</h1>
+  }
+
   return (
     <div className="App">
+    
       <header className="App-header">
+      <Menu />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -24,8 +32,12 @@ function App() {
         <CompA />
         <Switch>
 
-          <Route path='/' component={About} exact />
-          <Route path='/contact' component={Contact} />
+          <Route path='/' component={()=>
+            <About name="About" />
+          } exact />
+          <Route path='/contact' render={()=>
+            <Contact name="Contact" />
+          } />
           <Route component={Error} />
         </Switch>
 
