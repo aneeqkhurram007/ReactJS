@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import CompA from './CompA';
+import { Route, Switch } from "react-router-dom";
+import About from './About';
+import Contact from './Contact';
 
 function App() {
   return (
@@ -19,6 +22,15 @@ function App() {
           Learn React
         </a>
         <CompA />
+        <Switch>
+
+          <Route path='/' component={About} exact />
+          <Route path='/contact' component={Contact} />
+          <Route component={Error} />
+        </Switch>
+
+        {/* <About />
+        <Contact /> */}
       </header>
     </div>
   );
