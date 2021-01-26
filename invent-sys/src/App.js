@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/read" component={Read} />
           <Route exact path="/update" component={Update} />
           <Route exact path="/delete" component={Delete} />
-<Route component={()=><h1>404 Error</h1> } />
+          <Route component={() => <h1>404 Error</h1>} />
         </Switch>
       </header>
     </div>
