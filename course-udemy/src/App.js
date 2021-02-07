@@ -23,20 +23,20 @@ function App() {
     setToggle(!toggle);
   }
 
-  const changeState = (arg) => {
-    setPeople([
-      {
-        name: arg,
-        age: 4
-      },
-      {
-        name: "Aneeq",
-        age: 20
-      }, {
-        name: "Wadda murshad",
-        age: "Check ta karo"
-      }
-    ]);
+  const changeState = (arg, id) => {
+
+    const peopleIndex = people.findIndex((p) => {
+      return p.id === id;
+    })
+
+    const person = [...people[peopleIndex]];
+
+    person.name = arg;
+
+    const persons = [...people];
+    people[peopleIndex] = persons;
+
+    setPeople(persons);
   }
 
   const deletePerson = (index) => {
@@ -54,7 +54,9 @@ function App() {
         <div>
 
           {people.map((person, index) => {
-            return <People name={person.name} age={person.age} click={() => deletePerson(index)} key={index} />
+            return <People name={person.name} age={person.age} click={() => deletePerson(index)} key={index} change={(event) => {
+              changeState(event, person.id)
+            }} />
           })}
 
           {/* <People name={people[0].name}
