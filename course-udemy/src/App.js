@@ -39,6 +39,13 @@ function App() {
     ]);
   }
 
+  const deletePerson = (index) => {
+    // let person = people.slice();
+    const person = [...people];
+    person.splice(index, 1);
+    setPeople(person);
+  }
+
   return (
     <div className="App">
       <button onClick={toggleChange}>Toggle State</button>
@@ -46,8 +53,8 @@ function App() {
       {toggle ?
         <div>
 
-          {people.map(person => {
-            return <People name={person.name} age={person.age} />
+          {people.map((person, index) => {
+            return <People name={person.name} age={person.age} click={() => deletePerson(index)} key={index} />
           })}
 
           {/* <People name={people[0].name}
