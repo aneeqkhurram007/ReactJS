@@ -44,10 +44,16 @@ function App() {
       <button onClick={toggleChange}>Toggle State</button>
 
       {toggle ?
-        <div> <People name={people[0].name}
-          click={changeState.bind(this, "New Murshad")} >Ok then</People>
+        <div>
+
+          {people.map(person => {
+            return <People name={person.name} age={person.age} />
+          })}
+
+          {/* <People name={people[0].name}
+            click={changeState.bind(this, "New Murshad")} >Ok then</People>
           <People age={people[1].age} >{people[1].name}</People>
-          <People name={people[2].name} age={people[2].age} />
+          <People name={people[2].name} age={people[2].age} /> */}
         </div>
         : null
       }
