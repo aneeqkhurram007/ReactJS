@@ -17,6 +17,12 @@ function App() {
     }
   ]);
 
+  const [toggle, setToggle] = useState(false);
+
+  const toggleChange = () => {
+    setToggle(!toggle);
+  }
+
   const changeState = (arg) => {
     setPeople([
       {
@@ -35,11 +41,16 @@ function App() {
 
   return (
     <div className="App">
-      <People name={people[0].name}
-        click={changeState.bind(this, "New Name")} >Ok then</People>
-      <People age={people[1].age} >{people[1].name}</People>
-      <People name={people[2].name} age={people[2].age} />
-      <button onClick={changeState.bind(this, "Murshad")}>Change State</button>
+      <button onClick={toggleChange}>Toggle State</button>
+
+      {toggle ?
+        <div> <People name={people[0].name}
+          click={changeState.bind(this, "New Murshad")} >Ok then</People>
+          <People age={people[1].age} >{people[1].name}</People>
+          <People name={people[2].name} age={people[2].age} />
+        </div>
+        : null
+      }
     </div>
   );
 }
