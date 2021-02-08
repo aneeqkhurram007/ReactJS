@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import People from './People/People'
-import Radium from 'radium'
+import Radium, { StyleRoot } from 'radium'
 
 function App() {
 
@@ -93,14 +93,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Hi I'm React</h1>
-      <p className={classes.join(' ')}>This is really working</p>
-      <hr />
-      <button onClick={toggleChange} style={style}>Toggle State</button>
-      {person}
+    <StyleRoot>
+      <div className="App">
+        <h1>Hi I'm React</h1>
+        <p className={classes.join(' ')}>This is really working</p>
+        <hr />
+        <button onClick={toggleChange} style={style}>Toggle State</button>
+        {person}
 
-    </div>
+      </div>
+    </StyleRoot>
   );
 }
 
