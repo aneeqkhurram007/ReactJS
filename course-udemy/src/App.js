@@ -9,27 +9,22 @@ function App() {
       name: "Aneeq",
       age: 20
     }, {
-      name: "Murshad",
-      age: 4
+      name: "John",
+      age: 21
     }, {
-      name: "Wadda murshad",
-      age: "Koi pta nahi"
+      name: "Dave",
+      age: 18
     }
   ]);
 
-  const [toggle, setToggle] = useState(false);
-
-  const toggleChange = () => {
-    setToggle(!toggle);
-  }
-
   const changeState = (arg, id) => {
 
-    const peopleIndex = people.findIndex((p) => {
-      return p.id === id;
-    })
+    // const peopleIndex = people.findIndex((p) => {
+    //   return p.id === id;
+    // })
 
-    const person = { ...people[peopleIndex] };
+    const peopleIndex = id;
+    const person = people[peopleIndex];
 
     person.name = arg.target.value;
 
@@ -40,11 +35,18 @@ function App() {
   }
 
   const deletePerson = (index) => {
-    // let person = people.slice();
     const person = [...people];
     person.splice(index, 1);
     setPeople(person);
   }
+
+  const [toggle, setToggle] = useState(false);
+
+  const toggleChange = () => {
+    setToggle(!toggle);
+  }
+
+
 
   const style = {
     color: "white",
@@ -56,32 +58,38 @@ function App() {
   }
 
   let person = null;
+
   if (toggle === true) {
-    person = <div>
+    person = people.map((p, index) => {
+      return <People name={p.name}
+        age={p.age}
+        click={() => deletePerson(index)}
+        key={index}
+        change={(event) => {
+          changeState(event, index)
+        }} />
+    })
 
-      {people.map((person, index) => {
-        return <People name={person.name}
-          age={person.age}
-          click={() => deletePerson(index)}
-          key={index}
-          change={(event) => {
-            changeState(event, person.id)
-          }} />
-      })}
 
-      {/* <People name={people[0].name}
-    click={changeState.bind(this, "New Murshad")} >Ok then</People>
-  <People age={people[1].age} >{people[1].name}</People>
-  <People name={people[2].name} age={people[2].age} /> */}
-    </div>;
     style.backgroundColor = "red";
     style.border = "1px solid red";
 
   }
 
+  let classes = [];
+
+  if (people.length <= 2) {
+    classes.push('red');
+  }
+
+  if (people.length <= 1) {
+    classes.push('bold');
+  }
+
   return (
     <div className="App">
       <h1>Hi I'm React</h1>
+      <p className={classes.join(' ')}>This is really working</p>
       <hr />
       <button onClick={toggleChange} style={style}>Toggle State</button>
       {person}
