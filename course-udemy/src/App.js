@@ -15,7 +15,7 @@ const StyledButton = styled.button`
       background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
       color: black;
     }
-
+ 
 `;
 
 function App() {
@@ -59,21 +59,6 @@ function App() {
     setToggle(!toggle);
   }
 
-
-
-  // const style = {
-  //   color: "white",
-  //   font: "inherit",
-  //   border: "1px solid green",
-  //   padding: "8px",
-  //   cursor: "pointer",
-  //   backgroundColor: "green",
-  //   ':hover': {
-  //     backgroundColor: 'lightgreen',
-  //     color: "black"
-  //   }
-  // }
-
   let person = null;
 
   if (toggle === true) {
@@ -86,8 +71,6 @@ function App() {
           changeState(event, index)
         }} />
     })
-
-
 
   }
 

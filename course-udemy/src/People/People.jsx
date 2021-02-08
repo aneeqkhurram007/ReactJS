@@ -19,12 +19,6 @@ text-align:"center";
 
 const People = (props) => {
 
-    // const style = {
-    //     '@media (min-width: 500px)': {
-    //         width: "450px"
-    //     }
-    // }
-
     return (
         <StyledDiv>
             <h1 h1 onClick={props.click} > Name: {props.name}
