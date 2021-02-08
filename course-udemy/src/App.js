@@ -29,12 +29,12 @@ function App() {
       return p.id === id;
     })
 
-    const person = [...people[peopleIndex]];
+    const person = { ...people[peopleIndex] };
 
-    person.name = arg;
+    person.name = arg.target.value;
 
     const persons = [...people];
-    people[peopleIndex] = persons;
+    persons[peopleIndex] = person;
 
     setPeople(persons);
   }
@@ -54,9 +54,13 @@ function App() {
         <div>
 
           {people.map((person, index) => {
-            return <People name={person.name} age={person.age} click={() => deletePerson(index)} key={index} change={(event) => {
-              changeState(event, person.id)
-            }} />
+            return <People name={person.name}
+              age={person.age}
+              click={() => deletePerson(index)}
+              key={index}
+              change={(event) => {
+                changeState(event, person.id)
+              }} />
           })}
 
           {/* <People name={people[0].name}
