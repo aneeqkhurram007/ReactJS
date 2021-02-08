@@ -1,7 +1,22 @@
 import { useState } from 'react';
 import './App.css';
 import People from './People/People'
-import Radium, { StyleRoot } from 'radium'
+import styled from 'styled-components'
+
+const StyledButton = styled.button`
+    color: white;
+    font: inherit;
+    border: 1px solid green;
+    padding: 8px;
+    cursor: pointer;
+    background-color: green;
+    
+    &:hover{
+      background-color: lightgreen;
+      color: black;
+    }
+
+`;
 
 function App() {
 
@@ -46,18 +61,18 @@ function App() {
 
 
 
-  const style = {
-    color: "white",
-    font: "inherit",
-    border: "1px solid green",
-    padding: "8px",
-    cursor: "pointer",
-    backgroundColor: "green",
-    ':hover': {
-      backgroundColor: 'lightgreen',
-      color: "black"
-    }
-  }
+  // const style = {
+  //   color: "white",
+  //   font: "inherit",
+  //   border: "1px solid green",
+  //   padding: "8px",
+  //   cursor: "pointer",
+  //   backgroundColor: "green",
+  //   ':hover': {
+  //     backgroundColor: 'lightgreen',
+  //     color: "black"
+  //   }
+  // }
 
   let person = null;
 
@@ -73,12 +88,6 @@ function App() {
     })
 
 
-    style.backgroundColor = "red";
-    style.border = "1px solid red";
-    style[':hover'] = {
-      backgroundColor: "salmon",
-      color: "black"
-    };
 
   }
 
@@ -93,17 +102,15 @@ function App() {
   }
 
   return (
-    <StyleRoot>
-      <div className="App">
-        <h1>Hi I'm React</h1>
-        <p className={classes.join(' ')}>This is really working</p>
-        <hr />
-        <button onClick={toggleChange} style={style}>Toggle State</button>
-        {person}
+    <div className="App">
+      <h1>Hi I'm React</h1>
+      <p className={classes.join(' ')}>This is really working</p>
+      <hr />
+      <StyledButton onClick={toggleChange} >Toggle State</StyledButton>
+      {person}
 
-      </div>
-    </StyleRoot>
+    </div>
   );
 }
 
-export default Radium(App);
+export default App;
