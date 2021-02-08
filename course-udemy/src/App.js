@@ -19,9 +19,6 @@ function App() {
 
   const changeState = (arg, id) => {
 
-    // const peopleIndex = people.findIndex((p) => {
-    //   return p.id === id;
-    // })
 
     const peopleIndex = id;
     const person = people[peopleIndex];
