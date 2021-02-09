@@ -1,35 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './People.css';
-import styled from 'styled-components'
+import StyledDiv from '../../Styled/StyledDiv';
 
-const StyledDiv = styled.div`
-margin: 16px auto; 
-padding: 16px;
-border: 1px solid black;
-box-shadow:0 2px 3px #ccc;
-width: 60%;
-text-align:"center";
+class People extends Component {
 
-@media (min-width: 500px) {
-          width: "450px"
-      }
+    render() {
+        console.log("[People.js] render");
+        return (
+            <StyledDiv>
+                <h1 h1 onClick={this.props.click} > Name: {this.props.name}
+                </h1>
+                <h3>Age: {this.props.age} </h3>
+                <p >{this.props.children} </p>
+                <input type="text"
+                    onChange={this.props.change}
+                    value={this.props.name} />
+            </StyledDiv>
+        )
 
-` ;
-
-
-const People = (props) => {
-    console.log("[People.js] render");
-    return (
-        <StyledDiv>
-            <h1 h1 onClick={props.click} > Name: {props.name}
-            </h1>
-            <h3>Age: {props.age} </h3>
-            <p >{props.children} </p>
-            <input type="text"
-                onChange={props.change}
-                value={props.name} />
-        </StyledDiv>
-    )
-
-};
+    };
+}
 export default People;

@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import StyledButton from '../Styled/StyledButton'
 
 const Cockpit = (props) => {
+
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+    });
+
     const classes = [];
 
     if (props.people.length <= 2) {
