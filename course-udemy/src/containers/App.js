@@ -1,68 +1,88 @@
-import { useState } from 'react';
+import { Component } from 'react';
 import './App.css';
 import People from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit'
 
 
-function App() {
+class App extends Component {
 
-  const [people, setPeople] = useState([
-    {
-      name: "Aneeq",
-      age: 20
-    }, {
-      name: "John",
-      age: 21
-    }, {
-      name: "Dave",
-      age: 18
-    }
-  ]);
+  state = {
+    people: [
+      {
+        name: "Aneeq",
+        age: 20
+      }, {
+        name: "John",
+        age: 21
+      }, {
+        name: "Dave",
+        age: 18
+      }
+    ],
+    toggle: false
+  };
 
-  const changeState = (arg, id) => {
+  // const[people, setPeople] = useState([
+  //   {
+  //     name: "Aneeq",
+  //     age: 20
+  //   }, {
+  //     name: "John",
+  //     age: 21
+  //   }, {
+  //     name: "Dave",
+  //     age: 18
+  //   }
+  // ]);
+
+  changeState = (arg, id) => {
 
 
     const peopleIndex = id;
-    const person = people[peopleIndex];
+    const person = this.state.people[peopleIndex];
 
     person.name = arg.target.value;
 
-    const persons = [...people];
+    const persons = [...this.state.people];
     persons[peopleIndex] = person;
 
-    setPeople(persons);
+    this.setState({
+      people: persons
+    });
   }
 
-  const deletePerson = (index) => {
-    const person = [...people];
+  deletePerson = (index) => {
+    const person = [...this.state.people];
     person.splice(index, 1);
-    setPeople(person);
-  }
-
-  const [toggle, setToggle] = useState(false);
-
-  const toggleChange = () => {
-    setToggle(!toggle);
-  }
-
-  let person = null;
-
-  if (toggle === true) {
-    person = <People
-      people={people}
-      deletePerson={deletePerson}
-      changeState={changeState} />
-
+    this.setState({
+      people: person,
+    });
   }
 
 
-  return (
-    <div className="App">
-      <Cockpit toggle={toggle} toggleChange={toggleChange} people={people} />
-      {person}
+  toggleChange = () => {
+    const doesShow = this.state.toggle;
+    this.setState({
+      toggle: !doesShow
+    });
+  }
+  render() {
+    let person = null;
 
-    </div>
-  );
+    if (this.state.toggle) {
+      person = <People
+        people={this.state.people}
+        deletePerson={this.deletePerson}
+        changeState={this.changeState} />
+
+    }
+    return (<div className="App" >
+      <Cockpit toggle={this.state.toggle} toggleChange={this.toggleChange} people={this.state.people} />
+      { person}
+
+    </div>);
+
+  }
 }
 
 export default App;
