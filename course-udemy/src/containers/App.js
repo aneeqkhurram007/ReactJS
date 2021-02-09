@@ -6,34 +6,35 @@ import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
 
-  state = {
-    people: [
-      {
-        name: "Aneeq",
-        age: 20
-      }, {
-        name: "John",
-        age: 21
-      }, {
-        name: "Dave",
-        age: 18
-      }
-    ],
-    toggle: false
-  };
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constructotr');
+    this.state = {
+      people: [
+        {
+          name: "Aneeq",
+          age: 20
+        }, {
+          name: "John",
+          age: 21
+        }, {
+          name: "Dave",
+          age: 18
+        }
+      ],
+      toggle: false
+    };
 
-  // const[people, setPeople] = useState([
-  //   {
-  //     name: "Aneeq",
-  //     age: 20
-  //   }, {
-  //     name: "John",
-  //     age: 21
-  //   }, {
-  //     name: "Dave",
-  //     age: 18
-  //   }
-  // ]);
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerviedStateFromProps', props)
+    return state;
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
+  }
 
   changeState = (arg, id) => {
 
@@ -67,6 +68,7 @@ class App extends Component {
     });
   }
   render() {
+    console.log('[App.js] render')
     let person = null;
 
     if (this.state.toggle) {

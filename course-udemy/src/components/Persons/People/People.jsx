@@ -18,7 +18,7 @@ text-align:"center";
 
 
 const People = (props) => {
-
+    console.log("[People.js] render");
     return (
         <StyledDiv>
             <h1 h1 onClick={props.click} > Name: {props.name}
