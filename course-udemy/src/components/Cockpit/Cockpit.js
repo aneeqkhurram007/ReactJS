@@ -17,6 +17,7 @@ const Cockpit = (props) => {
     useEffect(() => {
         console.log("[Cockpit.js] 2nd useEffect");
         return () => {
+
             console.log("[Conckpit.js] cleanup work in 2nd useEffect");
         }
     })
@@ -41,4 +42,4 @@ const Cockpit = (props) => {
         </div>
     );
 }
-export default Cockpit;
+export default React.memo(Cockpit);
