@@ -93,10 +93,9 @@ class App extends Component {
         this.setState({ cockpit: false });
       }}>Remove Cockpit</button>
       {this.state.cockpit ?
-        <Cockpit toggle={this.state.toggle} toggleChange={this.toggleChange} people={this.state.people} />
+        <Cockpit person={person} toggle={this.state.toggle} toggleChange={this.toggleChange} people={this.state.people} />
 
         : null}
-      { person}
 
     </div>);
 

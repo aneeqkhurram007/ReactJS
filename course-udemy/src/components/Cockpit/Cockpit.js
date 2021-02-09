@@ -38,7 +38,9 @@ const Cockpit = (props) => {
             <p className={classes.join(' ')}>This is really working</p>
             <hr />
             <StyledButton alt={props.toggle} onClick={props.toggleChange} >Toggle State</StyledButton>
-
+            <div>
+                {props.person}
+            </div>
         </div>
     );
 }
