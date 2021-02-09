@@ -5,7 +5,21 @@ const Cockpit = (props) => {
 
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
-    });
+        setTimeout(() => {
+            alert('Saved Data to Cloud!');
+        }, 1000);
+        return () => {
+            console.log('[Conckpit.js] cleanup in useEffect');
+        }
+
+    }, []);
+
+    useEffect(() => {
+        console.log("[Cockpit.js] 2nd useEffect");
+        return () => {
+            console.log("[Conckpit.js] cleanup work in 2nd useEffect");
+        }
+    })
 
     const classes = [];
 

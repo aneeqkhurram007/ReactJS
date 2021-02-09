@@ -22,7 +22,8 @@ class App extends Component {
           age: 18
         }
       ],
-      toggle: false
+      toggle: false,
+      cockpit: true
     };
 
   }
@@ -88,7 +89,13 @@ class App extends Component {
 
     }
     return (<div className="App" >
-      <Cockpit toggle={this.state.toggle} toggleChange={this.toggleChange} people={this.state.people} />
+      <button onClick={() => {
+        this.setState({ cockpit: false });
+      }}>Remove Cockpit</button>
+      {this.state.cockpit ?
+        <Cockpit toggle={this.state.toggle} toggleChange={this.toggleChange} people={this.state.people} />
+
+        : null}
       { person}
 
     </div>);
