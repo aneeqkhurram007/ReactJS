@@ -38,6 +38,7 @@ class Persons extends PureComponent {
                 age={p.age}
                 click={() => this.props.deletePerson(index)}
                 key={index}
+                isAuth={this.props.isAuthenticated}
                 change={(event) => {
                     this.props.changeState(event, index)
                 }} />

@@ -23,7 +23,8 @@ class App extends Component {
         }
       ],
       toggle: false,
-      cockpit: true
+      cockpit: true,
+      authenticated: false
     };
 
   }
@@ -77,6 +78,14 @@ class App extends Component {
       toggle: !doesShow
     });
   }
+
+
+  authenticHandler = () => {
+    this.setState({
+      authenticated: true
+    })
+  }
+
   render() {
     console.log('[App.js] render')
     let person = null;
@@ -85,7 +94,9 @@ class App extends Component {
       person = <People
         people={this.state.people}
         deletePerson={this.deletePerson}
-        changeState={this.changeState} />
+        changeState={this.changeState}
+        isAuthenticated={this.state.authenticated}
+      />
 
     }
     return (<div className="App" >
@@ -93,7 +104,9 @@ class App extends Component {
         this.setState({ cockpit: false });
       }}>Remove Cockpit</button>
       {this.state.cockpit ?
-        <Cockpit person={person} toggle={this.state.toggle} toggleChange={this.toggleChange} people={this.state.people} />
+        <Cockpit person={person} toggle={this.state.toggle}
+          login={this.authenticHandler}
+          toggleChange={this.toggleChange} people={this.state.people} />
 
         : null}
 

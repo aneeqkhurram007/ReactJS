@@ -8,6 +8,9 @@ class People extends Component {
         console.log("[People.js] render");
         return (
             <StyledDiv>
+                { this.props.isAuth ? <p>Logged in</p> : <p>Not Logged In</p>
+                }
+
                 <h1 h1 onClick={this.props.click} > Name: {this.props.name}
                 </h1>
                 <h3>Age: {this.props.age} </h3>
