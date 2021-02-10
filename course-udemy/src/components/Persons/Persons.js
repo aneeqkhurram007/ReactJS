@@ -3,19 +3,6 @@ import People from './People/People'
 
 class Persons extends PureComponent {
 
-    // static getDerivedStateFromProps(props, state) {
-    //     console.log(']Persons.js] getDerivedStateFromProps');
-    //     return state;
-    // }
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     console.log('[Persons.js] shouldComponentUpdate');
-    //     if (nextProps.Persons !== this.props.people) {
-    //         return true;
-    //     }
-    //     else {
-    //         return false;
-    //     }
-    // }
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Person.js] getSnapshotBeforeUpdate');
         return { message: "Snapshot!" };
@@ -33,16 +20,19 @@ class Persons extends PureComponent {
     render() {
         console.log('[Persons.js] rendering...');
 
-        return this.props.people.map((p, index) => {
-            return <People name={p.name}
-                age={p.age}
-                click={() => this.props.deletePerson(index)}
-                key={index}
-                isAuth={this.props.isAuthenticated}
-                change={(event) => {
-                    this.props.changeState(event, index)
-                }} />
-        });
+        return (
+            this.props.people.map((p, index) => {
+                return <People name={p.name}
+                    age={p.age}
+                    click={() => this.props.deletePerson(index)}
+                    key={index}
+                    isAuth={this.props.isAuthenticated}
+                    change={(event) => {
+                        this.props.changeState(event, index)
+                    }} />
+            })
+        )
+
     }
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import StyledButton from '../Styled/StyledButton'
+import AuthContext from '../../context/authContext'
 
 const Cockpit = (props) => {
 
@@ -38,8 +39,9 @@ const Cockpit = (props) => {
             <p className={classes.join(' ')}>This is really working</p>
             <hr />
             <StyledButton alt={props.toggle} onClick={props.toggleChange} >Toggle State</StyledButton>
-
-            <StyledButton onClick={props.login} >Log In</StyledButton>
+            <AuthContext.Consumer>
+                {(context) => <StyledButton onClick={context.login} >Log In</StyledButton>}
+            </AuthContext.Consumer>
             <div>
                 {props.person}
             </div>
