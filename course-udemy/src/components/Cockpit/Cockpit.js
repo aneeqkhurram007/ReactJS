@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import StyledButton from '../Styled/StyledButton'
 import AuthContext from '../../context/authContext'
 
@@ -6,9 +6,9 @@ const Cockpit = (props) => {
 
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
-        setTimeout(() => {
-            alert('Saved Data to Cloud!');
-        }, 1000);
+        // setTimeout(() => {
+        //     alert('Saved Data to Cloud!');
+        // }, 1000);
         return () => {
             console.log('[Conckpit.js] cleanup in useEffect');
         }
@@ -22,6 +22,8 @@ const Cockpit = (props) => {
             console.log("[Conckpit.js] cleanup work in 2nd useEffect");
         }
     })
+
+    const context = useContext(AuthContext);
 
     const classes = [];
 
@@ -39,9 +41,9 @@ const Cockpit = (props) => {
             <p className={classes.join(' ')}>This is really working</p>
             <hr />
             <StyledButton alt={props.toggle} onClick={props.toggleChange} >Toggle State</StyledButton>
-            <AuthContext.Consumer>
-                {(context) => <StyledButton onClick={context.login} >Log In</StyledButton>}
-            </AuthContext.Consumer>
+
+            <StyledButton onClick={context.login} >Log In</StyledButton>
+
             <div>
                 {props.person}
             </div>
