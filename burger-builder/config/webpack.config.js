@@ -1,4 +1,3 @@
-'use strict';
 
 const fs = require('fs');
 const path = require('path');
@@ -475,8 +474,8 @@ module.exports = function (webpackEnv) {
                 sourceMap: isEnvProduction
                   ? shouldUseSourceMap
                   : isEnvDevelopment,
-                modules: true,
-                localIdentName: '[name]_[local]_[hash:base64:5]'
+                // modules: true,
+                // localIdentName: '[name]_[local]_[hash:base64:5]'
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
