@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 
 import Aux from '../../../hoc/Aux/Aux';
+=======
+import Aux from '../../../hoc/Auxiliary';
+>>>>>>> parent of c3dfbd5 (Folder Structure Improved)
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {

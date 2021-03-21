@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 
 import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+=======
+import React, { Component } from "react";
+import Aux from '../../hoc/Auxiliary';
+import Burger from "../../components/Burger/Burger";
+import BuildControls from '../../components/Burger/BuildControls/BuildControls'
+>>>>>>> parent of c3dfbd5 (Folder Structure Improved)
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
