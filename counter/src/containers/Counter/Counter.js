@@ -46,8 +46,8 @@ const mapDispatchtoProps = dispacth => {
     return {
         onIncrementCounter: () => dispacth({ type: 'INCREMENT' }),
         onDecrementCounter: () => dispacth({ type: 'DECREMENT' }),
-        onAddCounter: () => dispacth({ type: 'ADD' }),
-        onSubtractCounter: () => dispacth({ type: 'SUBTRACT' }),
+        onAddCounter: () => dispacth({ type: 'ADD', value: 5 }),
+        onSubtractCounter: () => dispacth({ type: 'SUBTRACT', value: 5 }),
     };
 };
 export default connect(mapStateToProps, mapDispatchtoProps)(Counter);
