@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import * as actionTypes from '../../store/actions'
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 import { connect } from 'react-redux';
@@ -33,21 +33,32 @@ class Counter extends Component {
                 <CounterControl label="Decrement" clicked={this.props.onDecrementCounter} />
                 <CounterControl label="Add 5" clicked={this.props.onAddCounter} />
                 <CounterControl label="Subtract 5" clicked={this.props.onSubtractCounter} />
+                <hr />
+                <button onClick={this.props.onStoreResult}>Store Result</button>
+                <ul>
+                    {this.props.storedResults.map(strResult => (
+                        <li key={strResult.id} onClick={() => this.props.onDeleteResult(strResult.id)} >{strResult.value}</li>
+
+                    ))}
+                </ul>
             </div>
         );
     }
 }
 const mapStateToProps = state => {
     return {
-        ctr: state.counter
+        ctr: state.counter,
+        storedResults: state.results
     };
 };
 const mapDispatchtoProps = dispacth => {
     return {
-        onIncrementCounter: () => dispacth({ type: 'INCREMENT' }),
-        onDecrementCounter: () => dispacth({ type: 'DECREMENT' }),
-        onAddCounter: () => dispacth({ type: 'ADD', value: 5 }),
-        onSubtractCounter: () => dispacth({ type: 'SUBTRACT', value: 5 }),
+        onIncrementCounter: () => dispacth({ type: actionTypes.INCREMENT }),
+        onDecrementCounter: () => dispacth({ type: actionTypes.DECREMENT }),
+        onAddCounter: () => dispacth({ type: actionTypes.ADD, value: 5 }),
+        onSubtractCounter: () => dispacth({ type: actionTypes.SUBTRACT, value: 5 }),
+        onStoreResult: () => dispacth({ type: actionTypes.STORE_RESULT }),
+        onDeleteResult: (id) => dispacth({ type: actionTypes.DELETE_RESULT, resultElId: id }),
     };
 };
 export default connect(mapStateToProps, mapDispatchtoProps)(Counter);

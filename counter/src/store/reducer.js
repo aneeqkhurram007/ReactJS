@@ -1,25 +1,44 @@
+import * as actionTypes from './actions';
 const initialState = {
-    counter: 0
+    counter: 0,
+    results: []
 }
 const reducer = (state = initialState, action) => {
-    if (action.type === 'INCREMENT') {
+    if (action.type === actionTypes.INCREMENT) {
         return {
+            ...state,
             counter: state.counter + 1
         };
     }
-    if (action.type === 'DECREMENT') {
+    if (action.type === actionTypes.DECREMENT) {
         return {
+            ...state,
             counter: state.counter - 1
         };
     }
-    if (action.type === 'ADD') {
+    if (action.type === actionTypes.ADD) {
         return {
+            ...state,
             counter: state.counter + action.value
         };
     }
-    if (action.type === 'SUBTRACT') {
-        return { counter: state.counter - action.value };
+    if (action.type === actionTypes.DECREMENT) {
+        return { ...state, counter: state.counter - action.value };
     }
+    if (action.type === actionTypes.STORE_RESULT) {
+        return {
+            ...state,
+            results: state.results.concat({ id: new Date(), value: state.counter })
+        }
+    }
+    if (action.type === actionTypes.DELETE_RESULT) {
+        const updateArray = state.results.filter(result => result.id !== action.resultElId);
+        return {
+            ...state,
+            results: updateArray
+        }
+    }
+
     return state;
 }
 export default reducer;
