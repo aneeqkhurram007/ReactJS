@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react'
-
+import RulesHooks from './components/RulesHooks';
 function App() {
   let name = "Aneeq Khurram";
   let modified = 'Modified';
@@ -14,9 +14,7 @@ function App() {
   }
   return (
     <div className="App-header">
-      <h1>
-        {state}
-      </h1>
+      <RulesHooks state={state} />
       <button onClick={changeMyName} >
         Click Me
       </button>
