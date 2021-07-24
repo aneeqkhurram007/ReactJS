@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react'
 import RulesHooks from './components/RulesHooks';
 import UseState from './components/UseState';
+import UseStateDot from './components/UseStateDot';
 function App() {
   let name = "Aneeq Khurram";
   let modified = 'Modified';
@@ -16,7 +17,8 @@ function App() {
   return (
     <div className="App-header">
       {/* <RulesHooks state={state} /> */}
-      <UseState />
+      {/* <UseState /> */}
+      <UseStateDot />
       {/* <button onClick={changeMyName} >
         Click Me
       </button> */}
