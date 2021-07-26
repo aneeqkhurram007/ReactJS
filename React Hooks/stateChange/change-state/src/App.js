@@ -4,6 +4,8 @@ import RulesHooks from './components/RulesHooks';
 import UseState from './components/UseState';
 import UseStateDot from './components/UseStateDot';
 import Challenge2 from './components/Challenge2';
+import ShortCircuit from './components/ShortCircuit';
+import LoginForm from './components/Forms/LoginForm';
 function App() {
   let name = "Aneeq Khurram";
   let modified = 'Modified';
@@ -20,7 +22,9 @@ function App() {
       {/* <RulesHooks state={state} /> */}
       {/* <UseState /> */}
       {/* <UseStateDot /> */}
-      <Challenge2 />
+      {/* <Challenge2 /> */}
+      {/* <ShortCircuit /> */}
+      <LoginForm />
       {/* <button onClick={changeMyName} >
         Click Me
       </button> */}

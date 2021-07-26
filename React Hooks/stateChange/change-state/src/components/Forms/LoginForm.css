@@ -1,0 +1,18 @@
+input {
+  padding: 5%;
+  margin: 5%;
+  border-radius: 10px;
+  width: 80%;
+}
+.innerDiv {
+  background-color: cornflowerblue;
+  border-radius: 25px;
+  padding: 2%;
+  margin: 2%;
+  text-align: center;
+  align-items: center;
+}
+button {
+  font-size: 18px;
+  border-radius: 5px;
+}
