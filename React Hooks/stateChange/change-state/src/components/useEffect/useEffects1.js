@@ -4,7 +4,7 @@ const UseEffects1 = () => {
     const [count, setcount] = useState(0)
     useEffect(() => {
         if (count > 0) document.title = `Chats (${count})`
-    })
+    }, [count])
     return (
         <>
             <h1>{count}</h1>
