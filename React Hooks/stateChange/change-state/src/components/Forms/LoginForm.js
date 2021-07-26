@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import './LoginForm.css';
 const LoginForm = () => {
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
     const [state, setstate] = useState({
 
         email: "",
@@ -14,8 +12,16 @@ const LoginForm = () => {
 
             <form action="" className="innerDiv" onSubmit={(e) => {
                 e.preventDefault();
-                setstate({ ...state, id: state.id + 1 })
-                setarr([...arr, state]);
+                if (state.email && state.password) {
+                    setarr([...arr, state]);
+                    setstate({
+                        email: "",
+                        password: ""
+                    });
+                }
+                else {
+                    alert("Please Fill It")
+                }
             }}>
                 <div >
                     <label htmlFor="email">Email</label>
