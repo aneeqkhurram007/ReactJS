@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react'
 const UseEffects2 = () => {
     useEffect(() => {
-        window.addEventListener("resize", () => {
-            setsize(window.innerWidth)
+        window.addEventListener("resize", () => setsize(window.innerWidth))
 
-        })
+        return () =>
+            window.removeEventListener("resize", () => setsize(window.innerWidth))
 
-        return () => {
-            window.removeEventListener("resize", () => {
-                setsize(window.innerWidth);
-            })
-        }
     })
     const [size, setsize] = useState(window.screen.width)
     return (
