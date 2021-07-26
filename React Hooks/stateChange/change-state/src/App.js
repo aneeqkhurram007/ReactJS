@@ -1,6 +1,6 @@
 import './App.css';
 import React, { /*useState*/ } from 'react'
-import UseEffects2 from './components/useEffect/useEffects2';
+import Project1 from './components/useEffect/Project1';
 // import RulesHooks from './components/RulesHooks';
 // import UseState from './components/UseState';
 // import UseStateDot from './components/UseStateDot';
@@ -29,7 +29,7 @@ function App() {
       {/* <button onClick={changeMyName} >
         Click Me
       </button> */}
-      <UseEffects2 />
+      <Project1 />
     </div>
   );
 }
