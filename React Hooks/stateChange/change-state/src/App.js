@@ -1,6 +1,7 @@
 import './App.css';
 import React, { /*useState*/ } from 'react'
-import ControlledForms from './components/Forms/ControlledForm/ControlledForm';
+import UseReducer from './components/UseReducer';
+// import ControlledForms from './components/Forms/ControlledForm/ControlledForm';
 // import Project1 from './components/useEffect/Project1';
 // import RulesHooks from './components/RulesHooks';
 // import UseState from './components/UseState';
@@ -31,7 +32,8 @@ function App() {
         Click Me
       </button> */}
       {/* <Project1 /> */}
-      <ControlledForms />
+      {/* <ControlledForms /> */}
+      <UseReducer />
     </div>
   );
 }
