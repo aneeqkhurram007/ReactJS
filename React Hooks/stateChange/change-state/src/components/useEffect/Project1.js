@@ -8,10 +8,11 @@ const Project1 = () => {
     const [loading, setloading] = useState(true);
     const getUsers = async () => {
         try {
-            setloading(false);
             const response = await fetch('https://jsonplaceholder.typicode.com/albums/1/photos');
+            setloading(false);
             setusers(await response.json());
         } catch (error) {
+            setloading(false);
             console.log("URL Error " + error);
         }
     }
