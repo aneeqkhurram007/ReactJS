@@ -1,6 +1,6 @@
-import './App.css';
+// import './App.css';
 import React, { /*useState*/ } from 'react'
-import UseContext from './components/useContext';
+import UseLocation from './components/useLocation';
 // import ControlledForms from './components/Forms/ControlledForm/ControlledForm';
 // import Project1 from './components/useEffect/Project1';
 // import RulesHooks from './components/RulesHooks';
@@ -33,7 +33,7 @@ function App() {
       </button> */}
       {/* <Project1 /> */}
       {/* <ControlledForms /> */}
-      <UseContext />
+      <UseLocation />
     </div>
   );
 }
