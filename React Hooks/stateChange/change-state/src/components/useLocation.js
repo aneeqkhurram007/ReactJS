@@ -4,7 +4,7 @@ import Index from './UseLocation/index';
 import About from './UseLocation/about';
 import Nav from './UseLocation/nav';
 const UseLocation = () => {
-    const location = useLocation();
+    // const location = useLocation();
     return (
         <BrowserRouter>
             <Nav />
