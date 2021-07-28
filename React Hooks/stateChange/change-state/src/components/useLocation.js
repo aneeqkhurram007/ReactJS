@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, /*useLocation*/ } from 'react-router-dom';
 import Index from './UseLocation/index';
 import About from './UseLocation/about';
 import Nav from './UseLocation/nav';
