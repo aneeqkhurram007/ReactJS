@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react'
 import image from '../Images/Google_Keep_icon128_(2015-2020).svg.png';
 import { MdAdd, MdDelete } from "react-icons/md";
 import './ToDoList.css'
+
+const getLocalItems = () => {
+    let list = localStorage.getItem('lists');
+
+    if (list) {
+        return JSON.parse(list);
+    }
+    else {
+        return [];
+    }
+}
 const ToDoList = () => {
 
     // const [state, setstate] = useState(
@@ -17,16 +28,21 @@ const ToDoList = () => {
     //     }
     // )
     const [temp, settemp] = useState("")
-    const [state, setstate] = useState([])
+    const [state, setstate] = useState(getLocalItems())
     const itemChange = (e) => {
         let value = e.target.value;
         settemp(value);
     }
+    // let temp;
     useEffect(() => {
-        const input = document.getElementById("input");
-        input.value = "";
-
-    })
+        // const input = document.getElementById("input");
+        // input.value = "";
+        // const i = document.querySelector("i");
+        // i.addEventListener('click', () => {
+        //     temp = input.value;
+        // })
+        localStorage.setItem('lists', JSON.stringify(state))
+    }, [state])
 
     return (
         <>
@@ -45,10 +61,10 @@ const ToDoList = () => {
                         onChange={itemChange} value={temp} id="input" />
                     <i title="Add Item" style={{ cursor: "pointer" }}
                         onClick={() => {
-
-                            setstate([...state, temp])
-                            // settemp("");
-
+                            if (temp) {
+                                setstate([...state, temp])
+                                settemp("");
+                            }
                         }} >
                         <MdAdd />
                     </i>
@@ -56,11 +72,10 @@ const ToDoList = () => {
                 <div className="outputDiv">
 
                     {
-
                         state.map((currVal, index) => {
 
                             return (
-                                currVal ? <div key={index} >
+                                <div key={index} >
                                     <h4>{currVal}
                                         <i title="Delete Item"
                                             style={{ cursor: "pointer", marginLeft: "2%" }}
@@ -71,7 +86,7 @@ const ToDoList = () => {
 
                                 </div>
 
-                                    : "")
+                            )
                         })}
                 </div>
                 <div className="button">
