@@ -13,6 +13,7 @@ const getLocalItems = () => {
         return [];
     }
 }
+let inputVal;
 const ToDoList = () => {
 
     // const [state, setstate] = useState(
@@ -29,6 +30,7 @@ const ToDoList = () => {
     // )
     const [temp, settemp] = useState("")
     const [state, setstate] = useState(getLocalItems())
+    const [show, setshow] = useState(true)
     const itemChange = (e) => {
         let value = e.target.value;
         settemp(value);
@@ -59,15 +61,38 @@ const ToDoList = () => {
                 <div className="inputDiv">
                     <input type="text" placeholder="Add"
                         onChange={itemChange} value={temp} id="input" />
-                    <i title="Add Item" style={{ cursor: "pointer" }}
-                        onClick={() => {
-                            if (temp) {
-                                setstate([...state, temp])
-                                settemp("");
-                            }
-                        }} >
-                        <MdAdd />
-                    </i>
+                    {
+                        show ?
+                            <i title="Add Item" style={{ cursor: "pointer" }}
+                                onClick={() => {
+                                    if (temp) {
+                                        setstate([...state, temp])
+                                        settemp("");
+                                    }
+                                }} >
+                                <MdAdd />
+                            </i>
+                            :
+                            <i title="Edit Item" style={{ cursor: "pointer" }}
+                                onClick={() => {
+                                    if (temp) {
+                                        // const inputVal = document.getElementById('input').value;
+
+                                        // console.log(state.indexOf(inputVal));
+                                        setstate(state.map((curr) => {
+                                            if (curr === inputVal) {
+                                                curr = temp
+                                            }
+                                            return curr;
+                                        }))
+                                        settemp("");
+                                        setshow(true);
+                                    }
+                                }} >
+                                <MdBorderColor />
+                            </i>
+
+                    }
                 </div>
                 <div className="outputDiv">
 
@@ -80,8 +105,10 @@ const ToDoList = () => {
 
                                         <i title="Edit Itme" style={{ cursor: "pointer", paddingLeft: "5%" }}
                                             onClick={() => {
+                                                setshow(false);
                                                 settemp(currVal);
-                                                setstate(state.filter(ele => currVal !== ele))
+                                                inputVal = currVal
+                                                // setstate(state.filter(ele => currVal !== ele))
                                             }}
                                         >
                                             <MdBorderColor />
