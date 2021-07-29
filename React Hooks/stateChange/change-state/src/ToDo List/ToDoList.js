@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import image from '../Images/Google_Keep_icon128_(2015-2020).svg.png';
-import { MdAdd, MdDelete } from "react-icons/md";
+import { MdAdd, MdDelete, MdBorderColor } from "react-icons/md";
 import './ToDoList.css'
 
 const getLocalItems = () => {
@@ -77,6 +77,16 @@ const ToDoList = () => {
                             return (
                                 <div key={index} >
                                     <h4>{currVal}
+
+                                        <i title="Edit Itme" style={{ cursor: "pointer", paddingLeft: "5%" }}
+                                            onClick={() => {
+                                                settemp(currVal);
+                                                setstate(state.filter(ele => currVal !== ele))
+                                            }}
+                                        >
+                                            <MdBorderColor />
+                                        </i>
+
                                         <i title="Delete Item"
                                             style={{ cursor: "pointer", marginLeft: "2%" }}
                                             onClick={() => setstate(state.filter(ele => currVal !== ele))} >
