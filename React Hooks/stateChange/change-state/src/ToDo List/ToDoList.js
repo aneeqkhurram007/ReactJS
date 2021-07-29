@@ -1,26 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import image from '../Images/Google_Keep_icon128_(2015-2020).svg.png';
 import { MdAdd, MdDelete } from "react-icons/md";
 import './ToDoList.css'
 const ToDoList = () => {
 
-    const [state, setstate] = useState(
-        {
+    // const [state, setstate] = useState(
+    //     {
 
-            arr: [
-                {
-                    id: "",
-                    value: ""
-                }
-            ],
-            item: ""
-        }
-    )
+    //         arr: [
+    //             {
+    //                 id: "",
+    //                 value: ""
+    //             }
+    //         ],
+    //         item: ""
+    //     }
+    // )
+    const [temp, settemp] = useState("")
+    const [state, setstate] = useState([])
     const itemChange = (e) => {
         let value = e.target.value;
-        setstate({ ...state, item: value });
+        settemp(value);
     }
-    const { arr } = state;
+    useEffect(() => {
+        const input = document.getElementById("input");
+        input.value = "";
+
+    })
 
     return (
         <>
@@ -36,16 +42,12 @@ const ToDoList = () => {
                 </div>
                 <div className="inputDiv">
                     <input type="text" placeholder="Add"
-                        onChange={itemChange} value={state.item} />
+                        onChange={itemChange} value={temp} id="input" />
                     <i title="Add Item" style={{ cursor: "pointer" }}
                         onClick={() => {
 
-                            setstate({
-                                ...state,
-                                arr: [...state.arr, { id: Date.now(), value: state.item }],
-                                item: ""
-                            })
-
+                            setstate([...state, temp])
+                            // settemp("");
 
                         }} >
                         <MdAdd />
@@ -55,14 +57,14 @@ const ToDoList = () => {
 
                     {
 
-                        arr.map((currVal) => {
-                            const { id, value } = currVal
+                        state.map((currVal, index) => {
+
                             return (
-                                id && value ? <div key={id} >
-                                    <h4>{value}
+                                currVal ? <div key={index} >
+                                    <h4>{currVal}
                                         <i title="Delete Item"
                                             style={{ cursor: "pointer", marginLeft: "2%" }}
-                                            onClick={() => setstate({ ...state, arr: arr.filter((ele) => id !== ele.id) })}  >
+                                            onClick={() => setstate(state.filter(ele => currVal !== ele))} >
                                             <MdDelete />
                                         </i>
                                     </h4>
@@ -74,7 +76,7 @@ const ToDoList = () => {
                 </div>
                 <div className="button">
                     <button className="btn btn-danger"
-                        onClick={() => setstate({ ...state, arr: [] })} >
+                        onClick={() => setstate([])} >
                         <span>Remove All</span>
                     </button>
                 </div>
