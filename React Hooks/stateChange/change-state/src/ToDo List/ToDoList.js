@@ -28,12 +28,17 @@ const ToDoList = () => {
     //         item: ""
     //     }
     // )
-    const [temp, settemp] = useState("")
-    const [state, setstate] = useState(getLocalItems())
-    const [show, setshow] = useState(true)
+    const [main, setMain] = useState({
+        temp: "",
+        state: getLocalItems(),
+        show: true
+    })
+    // const [temp, settemp] = useState("")
+    // const [state, setstate] = useState(getLocalItems())
+    // const [show, setshow] = useState(true)
     const itemChange = (e) => {
         let value = e.target.value;
-        settemp(value);
+        setMain({ ...main, temp: value });
     }
     // let temp;
     useEffect(() => {
@@ -43,8 +48,8 @@ const ToDoList = () => {
         // i.addEventListener('click', () => {
         //     temp = input.value;
         // })
-        localStorage.setItem('lists', JSON.stringify(state))
-    }, [state])
+        localStorage.setItem('lists', JSON.stringify(main.state))
+    }, [main])
 
     return (
         <>
@@ -60,14 +65,16 @@ const ToDoList = () => {
                 </div>
                 <div className="inputDiv">
                     <input type="text" placeholder="Add"
-                        onChange={itemChange} value={temp} id="input" />
+                        onChange={itemChange} value={main.temp} id="input" />
                     {
-                        show ?
+                        main.show ?
                             <i title="Add Item" style={{ cursor: "pointer" }}
                                 onClick={() => {
-                                    if (temp) {
-                                        setstate([...state, temp])
-                                        settemp("");
+                                    const { state, temp } = main;
+                                    if (main.temp) {
+                                        // setstate([...state, temp])
+                                        // settemp("");
+                                        setMain({ ...main, state: [...state, { id: Date.now(), value: temp }], temp: "" })
                                     }
                                 }} >
                                 <MdAdd />
@@ -75,18 +82,26 @@ const ToDoList = () => {
                             :
                             <i title="Edit Item" style={{ cursor: "pointer" }}
                                 onClick={() => {
+                                    const { state, temp, } = main;
+
                                     if (temp) {
                                         // const inputVal = document.getElementById('input').value;
 
                                         // console.log(state.indexOf(inputVal));
-                                        setstate(state.map((curr) => {
-                                            if (curr === inputVal) {
-                                                curr = temp
-                                            }
-                                            return curr;
-                                        }))
-                                        settemp("");
-                                        setshow(true);
+                                        setMain({
+                                            ...main, state: state.map((curr) => {
+                                                if (curr.id === inputVal) {
+                                                    curr.value = temp
+                                                }
+                                                return curr;
+                                            })
+                                            , temp: "",
+                                            show: true
+                                        }
+
+                                        )
+                                        // settemp("");
+                                        // setshow(true);
                                     }
                                 }} >
                                 <MdBorderColor />
@@ -97,17 +112,18 @@ const ToDoList = () => {
                 <div className="outputDiv">
 
                     {
-                        state.map((currVal, index) => {
-
+                        main.state.map((currVal) => {
+                            const { id, value } = currVal;
                             return (
-                                <div key={index} >
-                                    <h4>{currVal}
+                                <div key={id} >
+                                    <h4>{value}
 
                                         <i title="Edit Itme" style={{ cursor: "pointer", paddingLeft: "5%" }}
                                             onClick={() => {
-                                                setshow(false);
-                                                settemp(currVal);
-                                                inputVal = currVal
+                                                setMain({ ...main, show: false, temp: value })
+                                                // setshow(false);
+                                                // settemp(currVal);
+                                                inputVal = id
                                                 // setstate(state.filter(ele => currVal !== ele))
                                             }}
                                         >
@@ -116,7 +132,7 @@ const ToDoList = () => {
 
                                         <i title="Delete Item"
                                             style={{ cursor: "pointer", marginLeft: "2%" }}
-                                            onClick={() => setstate(state.filter(ele => currVal !== ele))} >
+                                            onClick={() => setMain({ ...main, state: main.state.filter(ele => value !== ele.value) })} >
                                             <MdDelete />
                                         </i>
                                     </h4>
@@ -128,7 +144,7 @@ const ToDoList = () => {
                 </div>
                 <div className="button">
                     <button className="btn btn-danger"
-                        onClick={() => setstate([])} >
+                        onClick={() => setMain({ ...main, state: [] })} >
                         <span>Remove All</span>
                     </button>
                 </div>
