@@ -9,7 +9,6 @@ function GalleryReact() {
 
     return (
         <>
-
             <h1>Order Menu</h1>
             <hr />
             <div>
