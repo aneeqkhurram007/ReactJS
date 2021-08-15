@@ -9,39 +9,60 @@ const ToDo = () => {
     const dispatch = useDispatch()
     return (
         <>
-            <div>
-                <div>
-                    <figure>
-                        <figcaption>To Do App</figcaption>
-                    </figure>
+
+
+
+            <div className="container">
+                <div style={{ borderStyle: "solid", borderRadius: "5px" }}>
                     <div>
-                        <input type="text" placeholder="Add Items..." value={state}
-                            onChange={(event) => setstate(event.target.value)} />
-                        <i onClick={() => dispatch(addTodo(state), setstate(''))}>
+                        <h1
+                            className="font-monospace"
+                            style={{
+                                borderStyle: "solid",
+                                borderColor: "rgb(255, 255, 255)",
+                                borderTopColor: "rgb(255,255,255)",
+                                borderRightColor: "rgb(255, 255, 255)",
+                                borderBottomColor: "rgb(255, 255, 255)",
+                                borderLeftColor: "rgb(255, 255, 255",
+                                fontSize: "45px",
+                                borderRadius: "5px"
+
+                            }} >
+                            To Do List&nbsp;
+                        </h1>
+                    </div>
+                    <div style={{ padding: "10px" }}>
+                        <input
+                            className="bg-white bg-gradient border-light shadow-sm"
+                            type="text"
+                            placeholder="Add Items..."
+                            value={state}
+                            onChange={(event) => setstate(event.target.value)}
+                            style={{ padding: "1px 2px", borderStyle: "solid", borderRadius: "5px" }}
+                        /><i style={{ padding: "10px" }} onClick={() => dispatch(addTodo(state), setstate(''))} >
                             <IoAdd />
                         </i>
                     </div>
-                    <div>
-                        {
-                            list.map((elem) => {
-                                return (
-                                    <div key={elem.id}>
-                                        <h3>{elem.data}</h3>
-                                        <i onClick={() => dispatch(delTodo(elem.id))}>
-                                            <IoTrash />
-                                        </i>
+                    {
+                        list.map((elem) => {
+                            return (
+                                <div key={elem.id} className="d-flex" style={{ padding: "10px", margin: "auto", justifyContent: "center" }}>
+                                    <h3 style={{ padding: "10px" }}>{elem.data}</h3>
+                                    <i style={{ padding: "14px" }} onClick={() => dispatch(delTodo(elem.id))}>
+                                        <IoTrash />
+                                    </i>
+                                </div>
+                            )
+                        })
 
-                                    </div>
-                                )
-                            })
-                        }
-
-                    </div>
+                    }
                     <div>
-                        <button onClick={() => dispatch(clearAll())}>Clear All</button>
+                        <button className="btn btn-light" style={{ padding: "2px", margin: "5px" }} onClick={() => dispatch(clearAll())}>Clear All</button>
                     </div>
+
                 </div>
             </div>
+
         </>
     )
 }
