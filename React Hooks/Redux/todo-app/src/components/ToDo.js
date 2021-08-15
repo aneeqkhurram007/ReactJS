@@ -5,7 +5,7 @@ import { IoAdd, IoTrash } from "react-icons/io5";
 
 const ToDo = () => {
     const [state, setstate] = useState('')
-    const list = useSelector(state => state.todoReducers.list)
+    const list = useSelector(state => state.todoReducers)
     const dispatch = useDispatch()
     return (
         <>
@@ -27,7 +27,7 @@ const ToDo = () => {
                                 return (
                                     <div key={elem.id}>
                                         <h3>{elem.data}</h3>
-                                        <i onClick={() => dispatch(delTodo(elem.id), setstate(''))}>
+                                        <i onClick={() => dispatch(delTodo(elem.id))}>
                                             <IoTrash />
                                         </i>
 

@@ -1,33 +1,20 @@
-const initial = {
-    list: []
-}
+const initial = []
 const todoReducers = (state = initial, action) => {
     switch (action.type) {
         case "Add":
             const { id, data } = action.payload;
-            return {
+            return [
                 ...state,
-                list: [
-                    ...state.list,
-                    {
-                        id,
-                        data
-                    }
-                ]
-
-            }
+                {
+                    id, data
+                }
+            ]
         case "Delete":
-            const newList = state.list.filter((elem) => elem.id !== action.id)
-            return {
-                ...state,
-                list: newList
-            }
+            const newList = state.filter((elem) => elem.id !== action.id)
+            return newList
 
         case "ClearAll":
-            return {
-                ...state,
-                list: []
-            }
+            return []
         default:
             return state;
     }
