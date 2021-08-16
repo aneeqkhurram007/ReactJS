@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import { addTodo, delTodo, clearAll } from '../actions';
+import { addTodo, delTodo, clearAll, editTodo, changeButton } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { IoAdd, IoTrash } from "react-icons/io5";
-
+import { IoAdd, IoTrash, IoPencil } from "react-icons/io5";
 const ToDo = () => {
     const [state, setstate] = useState('')
     const list = useSelector(state => state.todoReducers)
     const dispatch = useDispatch()
+    const buttonReducer = useSelector(state => state.buttonReducer)
+    const [id, setid] = useState(0)
+
     return (
         <>
 
@@ -39,8 +41,18 @@ const ToDo = () => {
                             value={state}
                             onChange={(event) => setstate(event.target.value)}
                             style={{ padding: "1px 2px", borderStyle: "solid", borderRadius: "5px" }}
-                        /><i style={{ padding: "10px" }} onClick={() => dispatch(addTodo(state), setstate(''))} >
-                            <IoAdd />
+                        /><i style={{ padding: "10px" }} >
+                            {buttonReducer ? <IoAdd onClick={() => {
+                                if (state) dispatch(addTodo(state), setstate(''))
+                                else alert("Please enter a value")
+
+
+                            }} /> :
+                                <IoPencil onClick={() => {
+
+                                    dispatch(editTodo(id, state), setstate(''))
+                                    dispatch(changeButton())
+                                }} />}
                         </i>
                     </div>
                     {
@@ -48,6 +60,14 @@ const ToDo = () => {
                             return (
                                 <div key={elem.id} className="d-flex" style={{ padding: "10px", margin: "auto", justifyContent: "center" }}>
                                     <h3 style={{ padding: "10px" }}>{elem.data}</h3>
+                                    <i style={{ padding: "14px" }} onClick={() => {
+                                        setid(elem.id)
+                                        console.log(id);
+                                        dispatch(changeButton(), setstate(elem.data))
+                                    }
+                                    }>
+                                        <IoPencil />
+                                    </i>
                                     <i style={{ padding: "14px" }} onClick={() => dispatch(delTodo(elem.id))}>
                                         <IoTrash />
                                     </i>
