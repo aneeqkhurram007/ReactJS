@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { addTodo, delTodo, clearAll, editTodo, changeButton } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { IoAdd, IoTrash, IoPencil } from "react-icons/io5";
@@ -8,7 +8,10 @@ const ToDo = () => {
     const dispatch = useDispatch()
     const buttonReducer = useSelector(state => state.buttonReducer)
     const [id, setid] = useState(0)
+    useEffect(() => {
+        localStorage.setItem('lists', JSON.stringify(list))
 
+    }, [list])
     return (
         <>
 

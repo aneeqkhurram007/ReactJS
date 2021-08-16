@@ -1,4 +1,8 @@
-const initial = []
+const getLocalItems = () => {
+    let lists = localStorage.getItem('lists');
+    return lists ? JSON.parse(lists) : [];
+}
+const initial = getLocalItems();
 const todoReducers = (state = initial, action) => {
     switch (action.type) {
         case "Add":
