@@ -1,31 +1,25 @@
 import React from 'react'
-
+import './Items.css'
 const Items = (props) => {
     return (
         <>
-            <div>
+            <div id="sdiv11"
+                className="d-inline-flex align-items-center align-content-center"
 
-                <div>
-                    <img src={props.img} alt="temp" />
-                </div>
-                <div>
-                    <h2>{props.title}</h2>
+            >
+                <div><img id="div11img1" alt="temp" src={props.img} /></div>
+                <div id="sdiv111" >
+                    <h5>{props.title}</h5>
                     <p>{props.description}</p>
                 </div>
-                <div>
-                    <i>-</i>
-                    <input type="text" placeholder="2" />
-                    <i>+</i>
+                <div className="d-inline-flex" id="sdiv112" >
+                    <em>-</em><input type="text" /><em>+</em>
                 </div>
-                <div>
-                    <h3>{props.price} </h3>
+                <div id="sdiv113" >
+                    <h6 >{props.price}</h6>
                 </div>
-                <div>
-                    <i>delete</i>
-                </div>
-
+                <div><em id="sdiv114em" >trash</em></div>
             </div>
-
             <hr />
 
 
