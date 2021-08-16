@@ -7,25 +7,30 @@ const todoReducers = (state = initial, action) => {
     switch (action.type) {
         case "Add":
             const { id, data } = action.payload;
-            return {
-                ...state,
-                list:
-                    [
-                        ...state.list,
-                        {
-                            id, data
-                        }
+            if (data.length > 2) {
+                return {
+                    ...state,
+                    list:
+                        [
+                            ...state.list,
+                            {
+                                id, data
+                            }
 
-                    ]
+                        ]
+                }
+            }
+            else {
+                return state;
             }
         case "Delete":
-            const newList = { ...state, list: state.filter((elem) => elem.id !== action.id) }
+            const newList = { ...state, list: state.list.filter((elem) => elem.id !== action.id) }
             return newList
         case "Edit":
 
             const editedList = {
                 ...state, list: state.list.map((elem) => {
-                    if (elem.id === action.payload.id) {
+                    if (elem.id === action.payload.id && action.payload.data.length > 2) {
                         elem.data = action.payload.data;
                     }
                     return elem;

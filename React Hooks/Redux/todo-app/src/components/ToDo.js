@@ -46,12 +46,10 @@ const ToDo = () => {
                             style={{ padding: "1px 2px", borderStyle: "solid", borderRadius: "5px" }}
                         /><i style={{ padding: "10px" }} >
                             {buttonReducer ? <IoAdd onClick={() => {
-                                if (state) dispatch(addTodo(state), setstate(''))
-                                else alert("Please enter a value")
-
+                                dispatch(addTodo(state), setstate(''))
 
                             }} /> :
-                                <IoPencil onClick={() => {
+                                <IoPencil title="Edit" onClick={() => {
 
                                     dispatch(editTodo(id, state), setstate(''))
                                     dispatch(changeButton())
