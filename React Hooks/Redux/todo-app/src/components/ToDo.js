@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IoAdd, IoTrash, IoPencil } from "react-icons/io5";
 const ToDo = () => {
     const [state, setstate] = useState('')
-    const list = useSelector(state => state.todoReducers)
+    const list = useSelector(state => state.todoReducers.list)
     const dispatch = useDispatch()
     const buttonReducer = useSelector(state => state.buttonReducer)
     const [id, setid] = useState(0)
