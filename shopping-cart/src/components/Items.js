@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { CartContext } from './Cart'
 import './Items.css'
 const Items = (props) => {
-    const { removeItem } = useContext(CartContext)
+    const { removeItem, decItem, incItem } = useContext(CartContext)
     return (
         <>
             <div id="sdiv11"
@@ -15,12 +15,16 @@ const Items = (props) => {
                     <p>{props.description}</p>
                 </div>
                 <div className="d-inline-flex" id="sdiv112" >
-                    <em>-</em><input type="text" /><em>+</em>
+                    <em onClick={() => decItem(props.id)} >-</em><input type="text" placeholder={props.quantity} /><em onClick={() => incItem(props.id)}>+</em>
                 </div>
                 <div id="sdiv113" >
                     <h6 >{props.price}</h6>
                 </div>
-                <div><em onClick={() => removeItem(props.id)} id="sdiv114em" >trash</em></div>
+                <div><em onClick={() => {
+
+                    removeItem(props.id)
+
+                }} id="sdiv114em" >trash</em></div>
             </div>
             <hr />
 

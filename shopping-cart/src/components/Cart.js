@@ -9,7 +9,7 @@ export const CartContext = createContext();
 const initialState = {
     item: products,
     totalAmount: 0,
-    totalItem: 0
+    totalItem: products.length
 };
 
 const Cart = () => {
@@ -23,9 +23,28 @@ const Cart = () => {
         })
     }
 
+    const clearAll = () => {
+        return dispatch({
+            type: "ClearAll"
+        })
+    }
+    const incItem = (id) => {
+        return dispatch({
+            type: "IncrementItem",
+            payload: id
+        })
+    }
+    const decItem = (id) => {
+        return dispatch({
+            type: "DecrementItem",
+            payload: id
+        })
+    }
+
+
     return (
         <>
-            <CartContext.Provider value={{ ...state, removeItem }} >
+            <CartContext.Provider value={{ ...state, removeItem, clearAll, incItem, decItem }} >
                 <ContextCart />
             </CartContext.Provider>
         </>

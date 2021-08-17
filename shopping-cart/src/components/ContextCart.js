@@ -4,7 +4,7 @@ import Items from './Items'
 import { CartContext } from './Cart'
 const ContextCart = () => {
 
-    const { item } = useContext(CartContext)
+    const { item, clearAll, totalItem } = useContext(CartContext)
     return (
         <>
             <header
@@ -32,31 +32,34 @@ const ContextCart = () => {
                     <p
                         className="text-end border-dark"
                         id="div2p"        >
-                        7
+                        {item.length}
                     </p>
                 </div>
             </header>
             <section >
                 <h3>Shopping Cart</h3>
-                <p>You have<span>&nbsp;7&nbsp;</span>&nbsp;items in Shopping Cart</p>
+                <p>You have<span>&nbsp;{item.length}&nbsp;</span>&nbsp;items in Shopping Cart</p>
                 <div id="secdiv1"
 
                 >
+                    {item.length > 0 ?
+                        <Scrollbars style={{ height: "50vh" }}>
+                            {
+                                item.map((curItem) => <Items key={curItem.id} {...curItem} />)
+                            }
 
-                    <Scrollbars style={{ height: "50vh" }}>
-                        {
-                            item.map((curItem) => <Items key={curItem.id} {...curItem} />)
-                        }
+                        </Scrollbars> : ""
 
-                    </Scrollbars>
-
-
+                    }
 
                     <div id="sdiv12" >
                         <h3 id="sdiv12h3" >
                             Card Total :&nbsp;&nbsp;<span>2000</span>
                         </h3>
                         <button className="btn btn-primary" type="button">Check Out</button>
+
+                        <button className="btn btn-danger" onClick={clearAll} >Clear All</button>
+
                     </div>
                 </div>
             </section>
