@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useEffect } from 'react'
 import ContextCart from './ContextCart';
 import { products } from "./product"
 import './Cart.css'
@@ -9,7 +9,7 @@ export const CartContext = createContext();
 const initialState = {
     item: products,
     totalAmount: 0,
-    totalItem: products.length
+    totalItem: 0,
 };
 
 const Cart = () => {
@@ -41,6 +41,11 @@ const Cart = () => {
         })
     }
 
+
+    useEffect(() => {
+        dispatch({ type: "TotalItem" })
+        dispatch({ type: "TotalAmount" })
+    }, [state.item])
 
     return (
         <>

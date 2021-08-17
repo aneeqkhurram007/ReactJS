@@ -4,7 +4,7 @@ import Items from './Items'
 import { CartContext } from './Cart'
 const ContextCart = () => {
 
-    const { item, clearAll, totalItem } = useContext(CartContext)
+    const { item, clearAll, totalItem, totalAmount } = useContext(CartContext)
     return (
         <>
             <header
@@ -32,13 +32,13 @@ const ContextCart = () => {
                     <p
                         className="text-end border-dark"
                         id="div2p"        >
-                        {item.length}
+                        {totalItem}
                     </p>
                 </div>
             </header>
             <section >
                 <h3>Shopping Cart</h3>
-                <p>You have<span>&nbsp;{item.length}&nbsp;</span>&nbsp;items in Shopping Cart</p>
+                <p>You have<span>&nbsp;{totalItem}&nbsp;</span>&nbsp;items in Shopping Cart</p>
                 <div id="secdiv1"
 
                 >
@@ -54,7 +54,7 @@ const ContextCart = () => {
 
                     <div id="sdiv12" >
                         <h3 id="sdiv12h3" >
-                            Card Total :&nbsp;&nbsp;<span>2000</span>
+                            Card Total :&nbsp;&nbsp;<span>{totalAmount}</span>
                         </h3>
                         <button className="btn btn-primary" type="button">Check Out</button>
 
