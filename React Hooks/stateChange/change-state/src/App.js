@@ -1,6 +1,7 @@
 // import './App.css';
 import React, { /*useState*/ } from 'react'
-import ToDoList from './ToDo List/ToDoList';
+import Counter from './components/Counter/Counter';
+// import ToDoList from './ToDo List/ToDoList';
 // import UseLocation from './components/useLocation';
 // import ControlledForms from './components/Forms/ControlledForm/ControlledForm';
 // import Project1 from './components/useEffect/Project1';
@@ -35,7 +36,8 @@ function App() {
       {/* <Project1 /> */}
       {/* <ControlledForms /> */}
       {/* <UseLocation /> */}
-      <ToDoList />
+      {/* <ToDoList /> */}
+      <Counter />
     </div>
   );
 }
