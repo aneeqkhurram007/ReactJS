@@ -43,8 +43,9 @@ const Cart = () => {
 
 
     useEffect(() => {
-        dispatch({ type: "TotalItem" })
-        dispatch({ type: "TotalAmount" })
+        // dispatch({ type: "TotalItem" })
+        // dispatch({ type: "TotalAmount" })
+        dispatch({ type: "Total" })
     }, [state.item])
 
     return (
