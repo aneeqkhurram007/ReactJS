@@ -4,7 +4,7 @@ import Items from './Items'
 import { CartContext } from './Cart'
 const ContextCart = () => {
 
-    const state = useContext(CartContext)
+    const { item } = useContext(CartContext)
     return (
         <>
             <header
@@ -45,7 +45,7 @@ const ContextCart = () => {
 
                     <Scrollbars style={{ height: "50vh" }}>
                         {
-                            state.map((curItem) => <Items key={curItem.id} {...curItem} />)
+                            item.map((curItem) => <Items key={curItem.id} {...curItem} />)
                         }
 
                     </Scrollbars>
