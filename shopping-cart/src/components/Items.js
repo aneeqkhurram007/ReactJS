@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from './Cart'
 import './Items.css'
 const Items = (props) => {
+    const { removeItem } = useContext(CartContext)
     return (
         <>
             <div id="sdiv11"
@@ -18,7 +20,7 @@ const Items = (props) => {
                 <div id="sdiv113" >
                     <h6 >{props.price}</h6>
                 </div>
-                <div><em id="sdiv114em" >trash</em></div>
+                <div><em onClick={() => removeItem(props.id)} id="sdiv114em" >trash</em></div>
             </div>
             <hr />
 
