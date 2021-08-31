@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Header.css'
 const Header = () => {
     return (
         <header>
@@ -14,17 +14,17 @@ const Header = () => {
                         </p>
                         <h3>Get early access for you</h3>
                         <div className="input-group mt-3">
-                            <input type="text" className="rounded-pill w-75 me-3 p-2 form-control-text" name="" id="" />
-                            <div className="input-group-text">
+                            <input type="text" placeholder="Enter Your Email" className="rounded-pill w-75 me-3 p-2 form-control-text" name="" id="" />
+                            <div className="input-group-button">
                                 Get it now
                             </div>
                         </div>
                     </div>
 
 
-                    <div className="col-12 col-lg-6 header-right-side d-flex justify-content-center align-items-center">
+                    <div className="col-12 col-lg-6 main-herosection-images header-right-side d-flex justify-content-center align-items-center">
                         <img src="" alt="heroimg1" className="img-fluid" />
-                        <img src="" alt="heroimg4" className="img-fluid" />
+                        <img src="" alt="heroimg4" className="img-fluid main-herosection-img2" />
                     </div>
                 </div>
             </section>

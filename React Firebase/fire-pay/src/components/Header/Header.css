@@ -1,0 +1,70 @@
+header {
+  background-color: var(--bgcolor);
+  min-height: 100vh;
+  width: 100%;
+}
+.main-hero-container {
+  height: 80vh;
+  display: flex;
+}
+.input-group {
+  position: relative;
+}
+.form-control-text {
+  position: absolute;
+  height: 4rem;
+  border: none;
+  outline-style: none;
+  padding-left: 1.3rem !important;
+  font-size: 1.3rem;
+  font-weight: lighter;
+}
+.input-group-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 51%;
+  color: #fff;
+  background-color: rgba(184, 171, 255, 0.856);
+  height: 3rem;
+  width: 15%;
+  border-radius: 1.8rem !important;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.main-hero-container h1 {
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+.main-hero-para {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 3rem 0 5rem 0;
+  font-weight: lighter;
+  width: 75%;
+}
+
+.main-hero-container h3 {
+  font-weight: lighter;
+}
+.main-herosection-images {
+  position: relative;
+}
+.main-herosection-images img {
+  width: 60%;
+  height: 75%;
+  margin-top: 10rem;
+  box-shadow: 0 0.8rem rgba(0, 0, 0, 0.25);
+  border-radius: 1.5rem;
+  position: absolute;
+}
+.main-herosection-images.main-herosection-img2 {
+  position: absolute;
+  width: 50%;
+  height: 30%;
+  left: 55%;
+  top: -2%;
+  box-shadow: 0.8rem 0rem rgba(0, 0, 0, 0.25);
+}
