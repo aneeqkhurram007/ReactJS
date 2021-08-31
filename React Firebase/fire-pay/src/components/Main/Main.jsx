@@ -1,5 +1,5 @@
 import React from 'react'
-
+import api from '../API/API';
 const Main = () => {
     return (
         <>
@@ -7,26 +7,24 @@ const Main = () => {
                 <div className="work-container container">
                     <h1 className="main-heading text-center">How Does it Work ?</h1>
                     <div className="row">
-                        <div className="col-12  col-lg-4 text-center work-container-subdiv">
-                            <h2 className="sub-heading">Download App</h2>
-                            <p className="main-hero-para w-100">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores commodi cupiditate accusantium temporibus incidunt voluptatum, nulla itaque optio asperiores quam quibusdam ut ad, fugit culpa ipsa repellendus, obcaecati placeat eius.
-                            </p>
-                        </div>
 
-                        <div className="col-12  col-lg-4 text-center work-container-subdiv">
-                            <h2 className="sub-heading">Download App</h2>
-                            <p className="main-hero-para w-100">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores commodi cupiditate accusantium temporibus incidunt voluptatum, nulla itaque optio asperiores quam quibusdam ut ad, fugit culpa ipsa repellendus, obcaecati placeat eius.
-                            </p>
-                        </div>
+                        {
+                            api.map((currEl) => {
+                                const { id, logo, title, info } = currEl
+                                return (
+                                    <div key={id} className="col-12  col-lg-4 text-center work-container-subdiv">
+                                        <i className={`fontawesome-style ${logo} `}></i>
+                                        <h2 className="sub-heading">{title}</h2>
+                                        <p className="main-hero-para w-100">
+                                            {info}
+                                        </p>
+                                    </div>
 
-                        <div className="col-12  col-lg-4 text-center work-container-subdiv">
-                            <h2 className="sub-heading">Download App</h2>
-                            <p className="main-hero-para w-100">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores commodi cupiditate accusantium temporibus incidunt voluptatum, nulla itaque optio asperiores quam quibusdam ut ad, fugit culpa ipsa repellendus, obcaecati placeat eius.
-                            </p>
-                        </div>
+                                )
+                            })
+                        }
+
+
                     </div>
 
 

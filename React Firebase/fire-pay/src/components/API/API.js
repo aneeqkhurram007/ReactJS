@@ -17,5 +17,6 @@ const workapi = [
         title: "Receive your funds",
         info: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Etquia quis?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Etquia quis?",
     },
+
 ];
 export default workapi;
