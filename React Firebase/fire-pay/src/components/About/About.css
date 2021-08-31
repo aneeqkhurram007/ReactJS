@@ -35,3 +35,12 @@
 .our-services .our-services-data p {
   margin: 0.8rem 0;
 }
+.common-section {
+  margin: 4rem 0;
+}
+.our-services-rightside-content {
+  padding-left: 8rem;
+}
+.our-services-rightside {
+  margin-top: 100px;
+}

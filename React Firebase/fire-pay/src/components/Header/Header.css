@@ -12,6 +12,7 @@ header {
 }
 .form-control-text {
   position: absolute;
+
   height: 4rem;
   border: none;
   outline-style: none;
