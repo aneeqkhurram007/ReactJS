@@ -1,0 +1,37 @@
+.our-services img {
+  width: 40%;
+  height: 75%;
+  margin-top: 8rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.8rem 0.8rem;
+  border-radius: 1rem;
+}
+.our-services .mini-title {
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 2.5rem 0;
+  text-align: left;
+  font-size: 1rem;
+}
+.our-services .main-heading {
+  font-weight: bolder;
+}
+.our-services-info {
+  margin-top: 3.5rem;
+}
+.our-services .our-services-number {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0.1rem solid rgba(184, 171, 255, 0.856);
+  font-size: 1rem;
+  color: rgba(184, 171, 255, 0.856);
+  display: grid;
+  place-items: center;
+}
+.our-services-data {
+  padding-left: 1.5rem;
+}
+.our-services .our-services-data p {
+  margin: 0.8rem 0;
+}
