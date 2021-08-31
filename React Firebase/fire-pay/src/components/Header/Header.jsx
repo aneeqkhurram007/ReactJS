@@ -23,8 +23,8 @@ const Header = () => {
 
 
                     <div className="col-12 col-lg-6 main-herosection-images header-right-side d-flex justify-content-center align-items-center">
-                        <img src="" alt="heroimg1" className="img-fluid" />
-                        <img src="" alt="heroimg4" className="img-fluid main-herosection-img2" />
+                        <img src="./images/hero1.jpg" alt="heroimg1" className="img-fluid" />
+                        <img src="./images/hero4.jpg" alt="heroimg4" className="img-fluid main-herosection-img2" />
                     </div>
                 </div>
             </section>
