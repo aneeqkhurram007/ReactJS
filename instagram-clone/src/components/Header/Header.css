@@ -1,0 +1,26 @@
+nav {
+  height: 50px;
+  border: 1px solid #dfdfdf;
+}
+.divHeader {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.divSvg {
+  height: 30px;
+  width: 30px;
+  padding: 0 20px;
+}
+.linkDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.active {
+  border-bottom: 2px solid firebrick;
+}
