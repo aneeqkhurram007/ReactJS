@@ -13,7 +13,7 @@ const Login = (props) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.isLogin(true);
+        props.islog(true);
     }
     return (
         <div className="div-login">
@@ -29,5 +29,6 @@ const Login = (props) => {
         </div>
     )
 }
+
 
 export default Login

@@ -1,0 +1,24 @@
+.profileDiv {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+}
+
+.user {
+  width: 150px;
+  position: relative;
+  left: 10%;
+  top: -10%;
+}
+.profileData {
+  display: flex;
+  flex-direction: column;
+}
+.username {
+  font-size: 2.5rem;
+}
+.name {
+  font-weight: bold;
+}

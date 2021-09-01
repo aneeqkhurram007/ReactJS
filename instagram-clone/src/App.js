@@ -18,8 +18,8 @@ function App() {
       <Switch>
         {
           !state.isLog ?
-            <Route path="/" exact render={() => <Login isLogin={handleLogin} />} /> :
-            <Route path='/' component={Home} />
+            <Route path="/" exact render={() => <Login islog={handleLogin} />} /> :
+            <Route path='/' render={() => <Home islog={handleLogin} />} />
         }
         <Route path="" component={Error404} />
       </Switch>
