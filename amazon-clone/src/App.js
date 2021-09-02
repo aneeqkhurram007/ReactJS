@@ -6,7 +6,34 @@ import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
 import NavLinks from './components/NavLinks/NavLinks';
+import { useStateValue } from './StateProvider';
+import { useEffect } from 'react'
+import { auth } from './components/Firebase/Firebase';
 function App() {
+  const [{ loggedinuser }, dispatch] = useStateValue()
+
+
+  useEffect(() => {
+
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch({
+          type: 'SET_LOGIN',
+          user
+        })
+      }
+      else {
+        dispatch({
+          type: 'SET_LOGIN',
+          user: null
+        })
+
+      }
+    })
+    return () => unsubscribe
+  }, [])
+
+  // console.log(loggedinuser);
   return (
     <Router>
       <div className="App">

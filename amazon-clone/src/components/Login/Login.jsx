@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { auth, signIn } from '../Firebase/Firebase'
+import { auth } from '../Firebase/Firebase'
 import './Login.css'
 const Login = ({ history }) => {
     const [state, setState] = useState({
@@ -11,14 +11,26 @@ const Login = ({ history }) => {
     const loggedInUser = (event) => {
 
         event.preventDefault()
-        signIn(auth, email, password)
-            .then((userCredential) => history.pushState('/')).cath(e => alert(e))
 
+        auth.signInWithEmailAndPassword(email, password)
+            .then((auth) => {
+                history.push('/')
+            })
+            .catch(e => alert(e))
+        setState({ ...state, email: "", password: "" })
 
     }
     const cahngeState = (e) => {
         const { name, value } = e.target
         setState({ ...state, [name]: value })
+    }
+    const signUp = (event) => {
+        event.preventDefault();
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(auth => {
+                history.push('/')
+            })
+            .catch(e => alert(e))
     }
     return (
         <div className="login">
@@ -36,7 +48,7 @@ const Login = ({ history }) => {
                     <button onClick={loggedInUser} type="submit" className="login__signInButton">Sign In</button>
                 </form>
                 <p>By signing in, you agree to Amazon's Terms and Conditions</p>
-                <button className="login__registerButton">Create your Amazon Account</button>
+                <button onClick={signUp} className="login__registerButton">Create your Amazon Account</button>
             </div>
         </div>
     )

@@ -4,9 +4,15 @@ import SearchIcon from '@material-ui/icons/Search'
 import './Header.css'
 import { ShoppingBasket } from '@material-ui/icons'
 import { useStateValue } from '../../StateProvider'
+import { auth } from '../Firebase/Firebase'
 const Header = () => {
-    const [{ basket }, dispatch] = useStateValue();
-    console.log("My Basket", basket);
+    const [{ basket, loggedinuser }] = useStateValue();
+    // console.log("My Basket", basket);
+    const logoutuser = () => {
+        if (loggedinuser) {
+            auth.signOut();
+        }
+    }
     return (
         <div className="header">
             <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="logo" className="header__logo" />
@@ -16,10 +22,10 @@ const Header = () => {
             </div>
             <div className="header__nav">
                 {/* 1st Link */}
-                <NavLink to='/' className="header__link">
-                    <div className="header__option">
-                        <span className="header__optionLineOne" >Hello, User</span>
-                        <span className="header__optionLineTwo" >Sign</span>
+                <NavLink to={!loggedinuser && '/login'} className="header__link">
+                    <div onClick={logoutuser} className="header__option">
+                        <span className="header__optionLineOne" >Hello, {loggedinuser?.email}</span>
+                        <span className="header__optionLineTwo" >{loggedinuser ? 'SignOut' : 'SignIn'}</span>
                     </div>
                 </NavLink>
                 {/* 2nd Link */}

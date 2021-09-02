@@ -16,7 +16,18 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loggedinuser: action.user
             }
+        case 'REMOVE_FROM_CART':
+            let newCart = [...state.basket]
+            // newCart.filter(product => product.id !== action.id)
+            // // console.log(newCart);
 
+            const index = state.basket.findIndex((ele) => ele.id === action.id);
+            if (index >= 0) {
+                newCart.splice(index, 1)
+            } else {
+                console.log('There were errors while removing');
+            }
+            return { ...state, basket: newCart }
         default:
             break;
     }
