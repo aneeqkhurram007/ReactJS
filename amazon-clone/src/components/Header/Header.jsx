@@ -3,7 +3,10 @@ import { NavLink } from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search'
 import './Header.css'
 import { ShoppingBasket } from '@material-ui/icons'
+import { useStateValue } from '../../StateProvider'
 const Header = () => {
+    const [{ basket }, dispatch] = useStateValue();
+    console.log("My Basket", basket);
     return (
         <div className="header">
             <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="logo" className="header__logo" />
@@ -26,20 +29,15 @@ const Header = () => {
                         <span className="header__optionLineTwo" >& Orders</span>
                     </div>
                 </NavLink>
-                {/* 3rd Link */}
-                <NavLink to='/' className="header__link">
-                    <div className="header__option">
-                        <span className="header__optionLineOne" >Your</span>
-                        <span className="header__optionLineTwo" >Prime</span>
-                    </div>
-                </NavLink>
+
+
             </div>
             {/* Basket Icon with number of items */}
             <NavLink to="/checkout" className="header__link">
                 <div className="header__optionBasket">
                     <ShoppingBasket />
                     {/* Number of Items */}
-                    <span className="header__optionLineTwo header__basketCount">2</span>
+                    <span className="header__optionLineTwo header__productCount">{basket?.length}</span>
                 </div>
             </NavLink>
         </div>
