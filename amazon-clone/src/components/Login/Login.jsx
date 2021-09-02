@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { auth, signIn } from '../Firebase/Firebase'
 import './Login.css'
-const Login = () => {
+const Login = ({ history }) => {
+    const [state, setState] = useState({
+        email: "",
+        password: ""
+    })
+    const { email, password } = state
+    const loggedInUser = (event) => {
+
+        event.preventDefault()
+        signIn(auth, email, password)
+            .then((userCredential) => history.pushState('/')).cath(e => alert(e))
+
+
+    }
+    const cahngeState = (e) => {
+        const { name, value } = e.target
+        setState({ ...state, [name]: value })
+    }
     return (
         <div className="login">
             <NavLink to="/">
@@ -12,10 +30,10 @@ const Login = () => {
                 <h1>Sign In</h1>
                 <form>
                     <h5>Email</h5>
-                    <input type="email" required name="email" id="email" />
+                    <input value={email} onChange={cahngeState} type="email" required name="email" id="email" />
                     <h5>Password</h5>
-                    <input type="password" required />
-                    <button type="submit" className="login__signInButton">Sign In</button>
+                    <input value={password} onChange={cahngeState} name="password" type="password" required />
+                    <button onClick={loggedInUser} type="submit" className="login__signInButton">Sign In</button>
                 </form>
                 <p>By signing in, you agree to Amazon's Terms and Conditions</p>
                 <button className="login__registerButton">Create your Amazon Account</button>
