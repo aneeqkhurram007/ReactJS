@@ -1,9 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Login from './components/Login/Login';
-import Home from './components/Home/Home';
-import Checkout from './components/Checkout/Checkout';
+import Login from './Pages/Login/Login';
+import Home from './Pages/Home/Home';
+import Checkout from './Pages/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
 import NavLinks from './components/NavLinks/NavLinks';
 import { useStateValue } from './StateProvider';

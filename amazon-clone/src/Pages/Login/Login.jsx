@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { auth } from '../Firebase/Firebase'
+import { auth } from '../../components/Firebase/Firebase'
 import './Login.css'
 const Login = ({ history }) => {
     const [state, setState] = useState({

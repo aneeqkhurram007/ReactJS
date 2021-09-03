@@ -1,7 +1,6 @@
 .productCart {
   display: flex;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;
 }
 .productCart__image {
   object-fit: contain;
