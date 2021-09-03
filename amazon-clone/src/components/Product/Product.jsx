@@ -1,15 +1,23 @@
-import React from 'react'
-import { useStateValue } from '../../StateProvider'
+import React, { useContext } from 'react'
+// import { useStateValue } from '../../StateProvider'
 import './Product.css'
+import Cart from '../../Cart'
+// import reducer from '../../reducer';
 const Product = ({ title, image, rating, price, id }) => {
-    const [{ basket }, dispatch] = useStateValue()
+
+    const { dispatch } = useContext(Cart)
+    // console.log("Product", initialState);
+    // const [{ basket }, dispatch] = useStateValue()
+    // const [, dispatch] = useReducer(reducer, initialState)
     const addToBasket = () => {
-        dispatch({
+        // console.log(initialState.basket);
+        return dispatch({
             type: "ADD_TO_BASKET",
             item: {
                 id, title, image, price, rating
             }
         }
+
         )
     }
     return (

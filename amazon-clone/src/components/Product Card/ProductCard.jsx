@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './ProductCard.css'
-import { useStateValue } from '../../StateProvider';
+// import { useStateValue } from '../../StateProvider';
+import Cart from '../../Cart';
+// import reducer from '../../reducer';
 
 const ProductCard = ({ id, rating, price, title, image }) => {
-    const [{ basket }, dispatch] = useStateValue();
+    // const [{ basket }, dispatch] = useStateValue();
+
+    const { dispatch } = useContext(Cart);
+    // const [state, dispatch] = useReducer(reducer, initialState)
     const removeItem = () => {
-        dispatch({
+        return dispatch({
             type: 'REMOVE_FROM_CART',
             id
         })

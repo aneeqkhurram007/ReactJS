@@ -1,9 +1,12 @@
 import './SubTotal.css'
-import React from 'react'
-import { useStateValue } from '../../StateProvider'
+import React, { useContext } from 'react'
+import Cart from '../../Cart'
+// import { useStateValue } from '../../StateProvider'
 // Currency Format
 const SubTotal = () => {
-    const [{ basket, dispatch }] = useStateValue()
+    const { state } = useContext(Cart)
+    const { basket } = state
+    // const [{ basket, dispatch }] = useStateValue()
     const getTotal = basket.reduce((accum, curr) => {
         const { price } = curr;
         return accum + price;

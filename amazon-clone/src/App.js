@@ -6,24 +6,28 @@ import Home from './Pages/Home/Home';
 import Checkout from './Pages/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
 import NavLinks from './components/NavLinks/NavLinks';
-import { useStateValue } from './StateProvider';
+// import { useStateValue } from './StateProvider';
+import { useReducer } from 'react';
 import { useEffect } from 'react'
 import { auth } from './components/Firebase/Firebase';
+import Cart from './Cart';
+import reducer, { initialState } from './reducer';
+// import Cart from './Cart'
 function App() {
-  const [{ loggedinuser }, dispatch] = useStateValue()
-
-
+  // const [{ loggedinuser }, dispatch] = useStateValue()
+  // const initialState = useContext(Cart)
+  const [state, dispatch] = useReducer(reducer, initialState)
   useEffect(() => {
 
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        dispatch({
+        return dispatch({
           type: 'SET_LOGIN',
           user
         })
       }
       else {
-        dispatch({
+        return dispatch({
           type: 'SET_LOGIN',
           user: null
         })
@@ -35,11 +39,12 @@ function App() {
 
   // console.log(loggedinuser);
   return (
-    <Router>
-      <div className="App">
-        <Switch>
-          {/* One way of doing this */}
-          {/* <Route exact path='/' render={() => {
+    <Cart.Provider value={{ state, dispatch }}>
+      <Router>
+        <div className="App">
+          <Switch>
+            {/* One way of doing this */}
+            {/* <Route exact path='/' render={() => {
             return (
               <>
                 <Header />
@@ -47,22 +52,23 @@ function App() {
               </>
             )
           }} /> */}
-          {/* Another way */}
-          <Route path="/" exact>
-            <Header />
-            <NavLinks />
-            <Home />
-            <Footer />
-          </Route>
-          <Route path="/checkout" exact>
-            <Header />
-            <NavLinks />
-            <Checkout />
-            <Footer />
-          </Route>          <Route exact path='/login' component={Login} />
-        </Switch>
-      </div>
-    </Router>
+            {/* Another way */}
+            <Route path="/" exact>
+              <Header />
+              <NavLinks />
+              <Home />
+              <Footer />
+            </Route>
+            <Route path="/checkout" exact>
+              <Header />
+              <NavLinks />
+              <Checkout />
+              <Footer />
+            </Route>          <Route exact path='/login' component={Login} />
+          </Switch>
+        </div>
+      </Router>
+    </Cart.Provider>
   );
 }
 

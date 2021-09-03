@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search'
 import './Header.css'
 import { ShoppingBasket } from '@material-ui/icons'
-import { useStateValue } from '../../StateProvider'
+// import { useStateValue } from '../../StateProvider'
 import { auth } from '../Firebase/Firebase'
+import Cart from '../../Cart'
 const Header = () => {
-    const [{ basket, loggedinuser }] = useStateValue();
+    // const [{ basket, loggedinuser }] = useStateValue();
     // console.log("My Basket", basket);
+    const { state } = useContext(Cart);
+    const { basket, loggedinuser } = state;
     const logoutuser = () => {
         if (loggedinuser) {
             auth.signOut();

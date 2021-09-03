@@ -3,10 +3,11 @@ export const initialState = {
     loggedinuser: null
 
 }
-const reducer = (state = initialState, action) => {
+const reducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TO_BASKET':
 
+            console.log("reducer", ...state.basket);
             return {
                 ...state,
                 basket: [...state.basket, action.item]
