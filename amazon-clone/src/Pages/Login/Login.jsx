@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { auth, createUser, signInUser } from '../../components/Firebase/Firebase'
+import { set, ref, db, auth, createUser, signInUser } from '../../components/Firebase/Firebase'
 import './Login.css'
 const Login = ({ history }) => {
     const [state, setState] = useState({
@@ -24,13 +24,39 @@ const Login = ({ history }) => {
         const { name, value } = e.target
         setState({ ...state, [name]: value })
     }
-    const signUp = (event) => {
+    const signUp = async (event) => {
         event.preventDefault();
         createUser(auth, email, password)
             .then(auth => {
                 history.push('/')
-            })
-            .catch(e => alert(e))
+            }).catch(e => alert(e))
+
+        const res = set(ref(db, 'userData/' + email.replace('.', '')), {
+            email, password
+        })
+        //One Method of accessing database
+        // const res = fetch('https://clone-9abbb-default-rtdb.firebaseio.com/userData.json',
+        //     {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify({
+        //             email, password
+        //         })
+        //     }
+
+
+        // )
+
+        if (res) {
+            alert("Data Stored")
+        }
+
+
+
+
+
     }
     return (
         <div className="login">
