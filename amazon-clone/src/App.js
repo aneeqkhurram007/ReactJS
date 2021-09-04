@@ -9,7 +9,7 @@ import NavLinks from './components/NavLinks/NavLinks';
 // import { useStateValue } from './StateProvider';
 import { useReducer } from 'react';
 import { useEffect } from 'react'
-import { auth } from './components/Firebase/Firebase';
+import { auth, stateChange } from './components/Firebase/Firebase';
 import Cart from './Cart';
 import reducer, { initialState } from './reducer';
 // import Cart from './Cart'
@@ -19,7 +19,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
   useEffect(() => {
 
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = stateChange(auth, (user) => {
       if (user) {
         return dispatch({
           type: 'SET_LOGIN',

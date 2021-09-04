@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { auth } from '../../components/Firebase/Firebase'
+import { auth, createUser, signInUser } from '../../components/Firebase/Firebase'
 import './Login.css'
 const Login = ({ history }) => {
     const [state, setState] = useState({
@@ -12,7 +12,7 @@ const Login = ({ history }) => {
 
         event.preventDefault()
 
-        auth.signInWithEmailAndPassword(email, password)
+        signInUser(auth, email, password)
             .then((auth) => {
                 history.push('/')
             })
@@ -26,7 +26,7 @@ const Login = ({ history }) => {
     }
     const signUp = (event) => {
         event.preventDefault();
-        auth.createUserWithEmailAndPassword(email, password)
+        createUser(auth, email, password)
             .then(auth => {
                 history.push('/')
             })
