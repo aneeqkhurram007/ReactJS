@@ -1,0 +1,83 @@
+
+/*  
+  .ant-steps-icon-dot{
+     background-color:#d36455 !important;
+  }
+  .ant-steps-item-icon  .ant-steps-icon {
+      color: #d36455 !important;
+  } */
+  .mainContainer{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+ }
+ .ant-checkbox-checked .ant-checkbox-inner {
+    background-color:#9e9e9e !important;
+    border-color: #9e9e9e !important;
+  }
+  .ant-checkbox-checked .ant-checkbox-inner:hover {
+    background-color:#9e9e9e !important;
+    border-color: #9e9e9e !important;
+  }
+  .ant-checkbox .ant-checkbox-inner:hover {
+    border-color:#9e9e9e !important;
+  }
+  .ant-checkbox .ant-checkbox-inner {
+    border-color:#9e9e9e !important;
+  }
+.classText{
+    color:#464444
+}
+/* .ant-slider-step{
+color: tomato !important;
+}
+.ant-slider-handle-dragging{
+  background-color: #d36455 !important;
+}
+.ant-slider-handle {
+  
+  border: 1px solid #9e9e9e; 
+ 
+}
+ant-slider-handle:focus {
+  border: 1px solid #9e9e9e; 
+ 
+} */
+.ant-slider-handle {
+  border-color:#9e9e9e !important;
+  background-color:white !important;
+
+  --antd-wave-shadow-color: #9e9e9e !important;
+}
+
+.ant-slider-handle:focus {
+  border-color:#9e9e9e !important;
+  background-color:white !important;
+
+  --antd-wave-shadow-color: #9e9e9e !important;
+}
+.ant-slider-handle-dragging {
+  border-color:#9e9e9e !important;
+  background-color:white !important;
+
+  --antd-wave-shadow-color: #9e9e9e !important;
+  outline: none;
+}
+
+.ant-slider-handle-click-focused:hover {
+  border-color:#9e9e9e !important;
+  background-color:white !important;
+
+  --antd-wave-shadow-color: #9e9e9e !important;
+}
+.ant-slider-track{
+  background-color: #d36455 !important;
+
+}
+.ant-table-cell{
+  background-color: #fbfbfb !important ;
+  border:0px !important
+}
+.ant-table-cell{
+  /* padding:0px !important; */
+}

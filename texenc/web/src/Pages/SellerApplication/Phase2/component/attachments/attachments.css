@@ -1,0 +1,64 @@
+.addbtn{
+    width: auto;
+    
+}
+
+
+
+.attach-footer{
+    display: flex;
+
+}
+
+
+.cont-btn{
+    margin-left: auto;
+}
+.modalAttachments{
+    display: flex;
+    justify-content: end;
+}
+.modalCancel{
+    margin-right: 0.5rem;
+    width: 5rem;
+}
+
+.modalSave{
+    width: 5rem;
+}
+
+/* .suppMaterialModal{
+    width: 12rem;
+} */
+
+
+
+
+/* Attachments */
+.urlPrev{
+    color:#d36455;
+    margin-left: 10px;
+}
+
+.urlIcon{
+    width: 20px;
+}
+
+.fileIcon{
+    width: 35px;
+}
+
+.file-card{
+    width: 100%;
+}
+
+
+.cer-dltbtn{
+    display: flex;
+    align-items: center;
+}
+
+.file-size{
+    margin-left: auto;
+}
+

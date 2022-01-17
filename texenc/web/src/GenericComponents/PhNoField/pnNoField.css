@@ -1,0 +1,11 @@
+.textField-container {
+    width:100%;
+    height:100%;
+  }
+.ReactFlagsSelect-module_selectBtn__19wW7{
+  border: none !important;
+}
+.ReactFlagsSelect-module_selectBtn__19wW7:focus{
+  border: none !important;
+  outline: none !important;
+}

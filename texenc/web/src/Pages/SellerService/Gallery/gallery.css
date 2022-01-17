@@ -1,0 +1,23 @@
+.ant-switch-checked{
+    background-color: #d36455;
+}
+.docImages{
+    max-height: 40px;
+    max-width: 40px;
+}
+.dragImage{
+    max-width:12px;
+    max-height:4.5px
+}
+.inputField{
+    height: 32px;
+    background-color: brown;
+}
+.gigImage{
+    max-height: 40px;
+    max-width: 60px;
+}
+.link{
+    width:20px;
+    height:20px
+}

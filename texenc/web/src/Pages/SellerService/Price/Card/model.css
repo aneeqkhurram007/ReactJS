@@ -1,0 +1,23 @@
+
+.buttonContainer{
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.box{
+cursor: pointer;
+/* position: absolute; */
+width: 30px;
+height: 30px;
+/* left: 939px; */
+/* top: 434px; */
+
+background: #FFFFFF;
+border: 1px solid #E9E9E9;
+box-sizing: border-box;
+border-radius: 3px;
+padding: 2px;
+}
+.rowDiv{
+    display: flex;
+    align-items:center;
+}

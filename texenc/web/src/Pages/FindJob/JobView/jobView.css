@@ -1,0 +1,38 @@
+.tagCategory{
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: white;
+}
+.imgdiv{
+    background-color: #fbfbfb;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-right:1px solid #e9e9e9;
+    height: 55px;
+    width:55px;
+}
+.width45{
+    width:45%
+}
+.img{
+    width:20px;
+    height:20px
+}
+.buttonEdit{
+    background-color:#c4c6c8 !important;
+    color:white
+}
+.buttonShare{
+    color:#625555
+}
+.textWight{
+    font-weight: 400 !important;
+}
+.underline{
+    color:#d36455;
+    border-bottom: 1px solid #d36455;
+}

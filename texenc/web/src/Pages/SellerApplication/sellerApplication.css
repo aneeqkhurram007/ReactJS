@@ -1,0 +1,15 @@
+.phase-container{
+    border:1px solid #c4c6c8;
+}
+.text{
+    color:#625555
+}
+.tagContainer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.spin{
+    margin-left: 50% !important;
+    margin-top: 30% !important
+}

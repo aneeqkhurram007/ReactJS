@@ -1,0 +1,5 @@
+@import '~antd/dist/antd.css';
+.buttonContainer{
+    flex-direction: row;
+    justify-content: flex-end;
+}

@@ -1,0 +1,23 @@
+.sideCardP{
+    margin-top: auto;
+}
+.MuiFormControlLabel-root {
+    border:1px solid black;
+    border-radius: 10px;
+}
+.MuiFormControlLabel-root.Mui-focused {
+    border:1px solid #d36455 !important;
+    border-radius: 10px !important;
+    background-color: aquamarine !important;   
+}
+.MuiFormLabel-root.Mui-focused{
+    color: #d36455 !important;
+    font-size: large !important;
+}
+.MuiFormLabel-root{
+    font-size: large !important;
+}
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+    color: #d36455 !important;
+
+}

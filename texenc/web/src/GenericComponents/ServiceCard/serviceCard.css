@@ -1,0 +1,27 @@
+.avatar{
+    width: 38px;
+    height: 38px;
+}
+
+.card-footer{
+    border-top: 1px solid rgba(0,0,0,.125);
+    background-color: white;
+}
+
+.card-head{
+    background-color: #f7f8f9;
+}
+
+.heading{
+    color:#8B8D91
+}
+
+.Servicebadge{
+    margin-left: auto;
+    width: 32px;
+    height: 32px;
+}
+.agencyName{
+    padding-left: 0.5rem;
+    align-self: center;
+}

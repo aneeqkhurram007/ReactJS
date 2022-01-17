@@ -1,0 +1,30 @@
+.cardContainer{
+    /* margin-top:10px ; */
+    margin-bottom:10px ;
+
+    width:100%;
+    min-height: 210px;
+}
+.icon{
+    box-shadow: #E9E9E9 0px 5px 15px;
+    padding: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 30px;
+    max-height: 45px ;
+    color:#9e9e9e;
+
+}
+.icon:hover{
+    cursor: pointer;    
+}
+.tag{
+    color: #625555 !important;
+}
+.ant-tag{
+    border-radius: 5px !important;
+}
+.imgAvatar{
+    max-width:15px;
+    max-height: 15px;
+}
