@@ -1,0 +1,44 @@
+.skill-heading{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.skillLevelbtn{
+    width: 7rem;
+}
+
+.sideCardP{
+    margin-top: auto;
+}
+
+.cancelDraftbtn{
+    width: 8rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+
+.phase2-cont-btn{
+    display: flex;
+    float: right;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+
+.uploaded-file{
+    padding: 18px;
+    border: #c4c6c8 solid 1px;
+}
+
+
+
+.image-file{
+    object-fit: contain;
+}
+
+.file-name{
+    align-items: center;
+}

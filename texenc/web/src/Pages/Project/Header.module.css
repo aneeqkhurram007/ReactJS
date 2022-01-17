@@ -1,0 +1,80 @@
+.container {
+    width: 90%;
+    margin: 15px auto;
+}
+.content {
+    width: 96%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    height: 60px;
+    width: 100%;
+    background-color: rgb(45, 65, 65,0.05);
+    display: flex;
+    justify-content: space-between;
+}
+.boxContent {
+    width: 33.3%;
+    display: flex; 
+    padding-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(45, 65, 65,0.05);
+}
+.boxContent:hover {
+    cursor: pointer;
+}
+.boxContent:nth-child(4) {
+    padding-right: 0px; 
+}
+.info {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px; 
+}
+.boxContent h2 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+.boxContent p{
+    color: var(--primary-color);
+} 
+.activeBoxWhite {
+    background-color: white;
+}
+.activeBoxWhite .info,
+.activeBox .info {
+    background-color: var(--secondary-color);
+}
+.arrowContent,
+.arrowContent4 {
+    width: 50px;
+    height: 100%;
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+    background-color: var(--secondary-color);
+}
+.arrowContent4 {
+    clip-path: none;
+}
+.notDone {
+    width: 50px;
+    height: 100%;
+    clip-path: polygon(100% 0%, 100% 34%, 100% 100%, 0 100%, 100% 50%, 0 0);
+    background-color: white;
+}
+.paymentContent {
+    width: 96%;
+    margin: 0 auto;
+}
+.centerContent {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}

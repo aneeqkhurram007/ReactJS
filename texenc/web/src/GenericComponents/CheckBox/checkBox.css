@@ -1,0 +1,28 @@
+  .typoGraph{
+     margin-top: 10px !important;
+ }
+ .PrivateSwitchBase-input-4{
+     background-color: brown !important;
+ }
+ /* .check  {
+    background-color: #D36455 !important;
+    border-color: #D36455 !important;
+  }  */
+  /* .ant-checkbox-input{
+    background-color: #D36455 !important;
+    border-color: #D36455 !important;
+  } */
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color:#D36455;
+    border-color: #D36455;
+  }
+  .ant-checkbox-checked .ant-checkbox-inner:hover {
+    background-color:#D36455 !important;
+    border-color: #D36455 !important;
+  }
+  .ant-checkbox .ant-checkbox-inner:hover {
+    border-color:#D36455 !important;
+  }
+  .ant-checkbox .ant-checkbox-inner {
+    border-color:#D36455 !important;
+  }

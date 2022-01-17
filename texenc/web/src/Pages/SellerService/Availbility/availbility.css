@@ -1,0 +1,38 @@
+.css-dmmspl-MuiFormGroup-root{
+    padding: 0px !important;
+    margin: 0% !important;
+}
+.MuiFormGroup-root {
+    /* background-color: blue !important; */
+    padding-left: 10px !important;
+    margin-right: -15px !important;
+    /* padding-right: -10px !important; */
+    /* margin-left: 30px !important; */
+    
+
+}
+.MuiFormControlLabel-root{
+    /* background-color: brown; */
+    border-radius: 5px !important;
+    border-color: #c4c6c8 !important;
+
+}
+.MuiFormControlLabel-root:hover{
+    /* background-color: brown; */
+    border-color: #d36455 !important;
+
+}
+.MuiFormControlLabel-root-checked{
+    background-color: brown;
+    border-color: #d36455 !important;
+
+}
+.css-j204z7-MuiFormControlLabel-root-checked{
+    background-color: brown !important;
+}
+.imginfo{
+    margin-left: 10px ;
+    margin-top: 5px;
+    max-width: 18px ;
+max-height: 18px ;
+}

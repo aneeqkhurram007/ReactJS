@@ -1,0 +1,19 @@
+.textField-container {
+    max-width:100%;
+    max-height:100%;
+    /* border-color: #D36455 !important; */
+  }
+
+
+  .main-field{
+    width: 100%;
+  }
+.simple-text:focus {
+    outline: #D36455 !important;
+    border:1px solid #D36455;
+}
+.textarea
+{
+  border-color: #c4c6c8;
+    resize: none;
+}

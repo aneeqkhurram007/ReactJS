@@ -1,0 +1,62 @@
+.otpfields {
+    display: flex;
+    /* column-gap: 1rem; */
+    justify-content: center;
+
+}
+.dash{
+align-self: center;
+}
+.ant-input{
+    font-size: 40px;
+    padding: 25px;
+}
+.ant-input:focus  {
+    border-color: #D36455;
+    box-shadow: 0 0 0 1px #FFF;
+}
+.ant-input:hover  {
+    border-color: #D36455;
+}
+.width{
+    min-width:50px;
+    height:50px;
+    /* background   -color: aquamarine; */
+}
+
+
+.container{
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	align-items: space-around;
+	justify-content: center;
+}
+
+.userInput{
+	display: flex;
+	justify-content: center;
+}
+
+.inputt{
+	margin: 10px;
+	height: 55px;
+	width: 65px;
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 1.2rem;
+	background: #eef2f3;
+
+}
+.inputt:focus{
+border-color: azure;
+}
+
+
+
+
+
+
+
+

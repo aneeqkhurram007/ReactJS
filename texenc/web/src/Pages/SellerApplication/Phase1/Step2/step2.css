@@ -1,0 +1,7 @@
+.buttonContainer{
+    flex-direction: row;
+    justify-content: space-between;
+}
+.buttonSpace{
+    width: 7rem;
+}

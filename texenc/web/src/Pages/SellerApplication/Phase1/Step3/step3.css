@@ -1,0 +1,46 @@
+.buttonCustomize{
+    width: 9rem;
+    border-color: #d36455 !important;
+    color: #d36455 !important;
+}
+.buttonExperiance{
+    width: 10rem;
+    border-color: #d36455 !important;
+    color: #d36455 !important;
+}
+.icon{
+    box-shadow: #E9E9E9 0px 5px 15px;
+    padding: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 25px;
+    max-height: 35px ;
+
+}
+.icondelet{
+    color: #F14343;
+}
+.iconedit{
+    color:#686868;
+}
+.textBoxWidth{
+    width:100%; 
+}
+.imageSize{
+    min-width: 38px !important;    
+    min-height: 30px !important;
+    margin-right: 15px;
+    /* margin-top: 50px;     */
+}
+.rightIcon{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.buttonContainer{
+    flex-direction: row;
+    justify-content: space-between;
+}
+.buttonSpace{
+    width: 7rem;
+}
