@@ -18,7 +18,8 @@ export { default as FindJobs } from '../Pages/FindJob/findJob';
 //Buyer Pages
 export { default as BuyerHome } from '../BuyerPages/BuyerHome/buyerHome';
 export { default as EXPLORE } from '../BuyerPages/Explore/exploreProjects';
-
+// Landing Page
+export { default as LandingPage } from '../Pages/LandingPage/index'
 
 
 

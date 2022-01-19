@@ -1,6 +1,10 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 
-import pages, { RESETPASSWORD, SINGUP, PHASE1, SELLER, PHASE2, LOGIN, PROFILE, SERVICE, PROJECT, MyJobs, AddJob, EXPLORE, FindJobs, BuyerHome } from "../Imports/pages";
+import pages, {
+    RESETPASSWORD, SINGUP, PHASE1, SELLER, PHASE2, LOGIN,
+    PROFILE, SERVICE, PROJECT, MyJobs, AddJob,
+    EXPLORE, FindJobs, BuyerHome, LandingPage
+} from "../Imports/pages";
 import { Navbar, DropDown, Tag } from '../Imports/genericComponents'
 // import pages, { RESETPASSWORD, SINGUP, SELLER, PHASE2, PHASE1, LOGIN } from "../Imports/pages";
 
@@ -11,7 +15,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={(props) =>
-            isAuthenticated() ? (
+            !isAuthenticated() ? (
                 <>
                     {
                         props.history.location.pathname != "/seller" &&
@@ -48,7 +52,8 @@ export default function Routes() {
                 <LoginRoute exact path="/auth" component={LOGIN} />
 
                 {/*Just For testing */}
-                <PrivateRoute exact path="/" component={BuyerHome} />
+                {/* <PrivateRoute exact path="/" component={BuyerHome} /> */}
+                <PrivateRoute exact path="/" component={LandingPage} />
 
 
                 <Route exact path="/reset" component={RESETPASSWORD} />
