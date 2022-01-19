@@ -1,7 +1,9 @@
+import ServiceCards from "../components/serviceCards"
+
 const Section2 = () => {
     return (
         <div style={{
-            width: '100vw', height: "100vh", display: 'flex', flexDirection: 'column',
+            width: '100vw', display: 'flex', flexDirection: 'column',
             justifyContent: 'space-evenly', padding: "2%", paddingTop: "10%"
         }}>
             <div style={{ textAlign: 'center' }}>
@@ -10,7 +12,7 @@ const Section2 = () => {
             <div style={{
                 borderRadius: "10px",
                 backgroundColor: "#f8f4f3",
-                display: "flex", height: "70%", padding: "5% 2%", flexDirection: "column", justifyContent: "space-between"
+                display: "flex", height: "50vh", padding: "5% 2%", flexDirection: "column", justifyContent: "space-between"
             }}>
                 <section style={{ width: "50%" }}>
                     <h1>Project Management that you need.</h1>
@@ -24,14 +26,25 @@ const Section2 = () => {
 
                 </section>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", marginTop: "5%", flexDirection: "column", justifyContent: "space-between" }}>
                 <div style={{ width: "100%", textAlign: "center" }}>
                     <h1 style={{ fontSize: "40px" }}>Top Services near you</h1>
                 </div>
-                <div>
-
+                <div style={{
+                    height: "40vh",
+                    display: "grid", gridTemplateColumns: "repeat(5, minmax(0, 1fr))"
+                }}>
+                    <ServiceCards />
+                    <ServiceCards />
+                    <ServiceCards />
+                    <ServiceCards />
+                    <ServiceCards />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10%' }}>
+                    <button style={{ padding: "10px 20px", color: "#D36455", border: "none", borderRadius: "2px", backgroundColor: "#f8f4f3", fontSize: "22px" }}>View More</button>
                 </div>
             </div>
+
         </div>
     )
 }
