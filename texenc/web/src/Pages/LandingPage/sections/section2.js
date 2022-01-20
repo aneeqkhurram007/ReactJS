@@ -1,4 +1,7 @@
 import ServiceCards from "../components/serviceCards"
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import CarouselCard from "../components/carouselCard";
 
 const Section2 = () => {
     return (
@@ -9,23 +12,13 @@ const Section2 = () => {
             <div style={{ textAlign: 'center' }}>
                 <h1 style={{ fontSize: "40px" }}>What makes us unique!</h1>
             </div>
-            <div style={{
-                borderRadius: "10px",
-                backgroundColor: "#f8f4f3",
-                display: "flex", height: "50vh", padding: "5% 2%", flexDirection: "column", justifyContent: "space-between"
-            }}>
-                <section style={{ width: "50%" }}>
-                    <h1>Project Management that you need.</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid est sed voluptatibus nihil culpa debitis dolorem delectus, recusandae libero perferendis voluptatem alias quae soluta ex adipisci sit temporibus iure dolor deleniti corporis unde quisquam! Itaque iusto error nostrum at vero consequuntur ipsa neque dolor veritatis placeat, inventore illo porro incidunt. Dolore amet cumque recusandae similique, tenetur cum molestias animi nisi hic esse sed excepturi perspiciatis provident ratione necessitatibus voluptas velit? Ad eligendi perferendis autem delectus velit hic ipsam ut, voluptates doloribus aperiam saepe quidem, neque quisquam? Accusantium, amet? Laborum obcaecati magnam eius! Dicta dolore laboriosam illo minima quisquam! Deserunt, officiis?</p>
-                </section>
-                <div style={{ display: 'flex' }}>
-                    <button style={{ borderRadius: "5px", padding: "1% 3%", marginRight: "2%", border: "1px solid #D36455", color: "white", backgroundColor: "#D36455", fontWeight: "bold" }}>Buy Services</button>
-                    <button style={{ borderRadius: "5px", padding: "1% 3%", marginRight: "2%", border: "1px solid #D36455", fontWeight: "bold", color: "#D36455" }}>Apply as Seller</button>
-                </div>
-                <section>
 
-                </section>
-            </div>
+            <Carousel showIndicators={true} showArrows={true} autoPlay={true} interval={3000} infiniteLoop={true}>
+                <CarouselCard title="Project Management that you need" bgColor="#f8f4f3" btnColor="#d36355" />
+                <CarouselCard title="Not only remote services also In-person" bgColor="#fef5e6" btnColor="#efae4a" />
+                <CarouselCard title="Sellers keep 100% of what they earn" bgColor={"#ecfffd"} btnColor="#01bdad" />
+                <CarouselCard title="Voice & Video calling of the future" bgColor="#f0f7ff" btnColor="#247add" />
+            </Carousel >
             <div style={{ display: "flex", marginTop: "5%", flexDirection: "column", justifyContent: "space-between" }}>
                 <div style={{ width: "100%", textAlign: "center" }}>
                     <h1 style={{ fontSize: "40px" }}>Top Services near you</h1>
